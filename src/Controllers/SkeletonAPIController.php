@@ -1,6 +1,6 @@
 <?php
 
-namespace Skeleton\Controllers;
+namespace Ajthinking\Skeleton\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;

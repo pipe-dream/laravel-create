@@ -1,6 +1,6 @@
 <?php
 
-namespace Skeleton;
+namespace Ajthinking\Skeleton;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Collection;

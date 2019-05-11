@@ -1,6 +1,6 @@
 <?php
 
-namespace Skeleton;
+namespace Ajthinking\Skeleton;
 
 use stdClass;
 use Storage;
