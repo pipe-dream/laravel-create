@@ -8,6 +8,6 @@ Route::view('/skeleton', 'skeleton::spa',[
 ]);
 
 Route::prefix('skeleton/api')->group(function () {
-    Route::get('/templates', '\Skeleton\Controllers\SkeletonAPIController@templates');
-    Route::post('/build',    '\Skeleton\Controllers\SkeletonAPIController@build');
+    Route::get('/templates', '\Ajthinking\Skeleton\Controllers\SkeletonAPIController@templates');
+    Route::post('/build',    '\Ajthinking\Skeleton\Controllers\SkeletonAPIController@build');
 });
