@@ -8,7 +8,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Storage;
 use File;
-use Skeleton\Ajthinking\ProjectFileManager;
+use Ajthinking\Skeleton\ProjectFileManager;
 
 class SkeletonAPIController extends BaseController
 {
