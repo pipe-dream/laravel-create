@@ -30,7 +30,7 @@
         methods: {
             build() {
                 (async () => {
-                    const rawResponse = await fetch('https://skeleton.test/skeleton/api/build', {
+                    const rawResponse = await fetch('/skeleton/api/build', {
                         method: 'POST',
                         headers: {
                         'Accept': 'application/json',
