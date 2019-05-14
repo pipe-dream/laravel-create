@@ -52,7 +52,7 @@
             "@php ../../../artisan package:discover --ansi"
         ],
         "post-update-cmd": [
-            "php ../../../artisan vendor:publish --provider='Ajthinking/Skeleton'"
+            
         ]
     }
 }

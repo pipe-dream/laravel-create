@@ -27,10 +27,19 @@ class SkeletonServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__.'/routes/routes.php');
         $this->loadViewsFrom(__DIR__.'/resources/views', 'skeleton');
         $this->registerStorages();
+    }
 
-        $this->publishes([
-            __DIR__ . '/public' => public_path('vendor/ajthinking/skeleton'),
-        ], 'public');
+    /*
+    * Laravels default publish feature is annoying for user
+    * Composer has no post-require-hook (to do it after package install)
+    * So resorting to do it every new page load
+    * Please fix this
+    */
+    public static function publishAssets() {
+        \File::copyDirectory(
+            __DIR__ . '/public',
+            public_path('vendor/ajthinking/skeleton')
+        );
     }
     
     private function registerStorages()
