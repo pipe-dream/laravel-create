@@ -27,6 +27,8 @@ export default new Vuex.Store({
 
         reviewFiles: [],
 
+        builtFiles: [],        
+
         templates: {},
 
         schema: [],
@@ -66,7 +68,11 @@ export default new Vuex.Store({
 
         setPreferences(state, preferences) {
             state.preferences = preferences
-        }
+        },
+
+        setBuiltFiles(state, files) {
+            state.builtFiles = files
+        }        
     },
     actions: {
         navigate(context, payload) {
@@ -130,6 +136,10 @@ export default new Vuex.Store({
         setReviewFile(context, file) {
             context.commit('setReviewFile', file)
             // set flag for modification
+        },
+        
+        setBuiltFiles(context, files) {
+            context.commit('setBuiltFiles', files)
         }        
     },
     getters: {

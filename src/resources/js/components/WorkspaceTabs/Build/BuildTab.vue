@@ -21,8 +21,7 @@
     export default {
         data() {
             return {
-                message: false,
-                results: []
+                message: false
             }
         },
 
@@ -56,6 +55,24 @@
             buttonStyle() {
                 return 'bg-blue text-white border bg-white py-4 px-8 rounded'
             }
+        },
+
+        computed: {
+            results: {
+                get() {
+                    return this.$store.state.builtFiles
+                },
+
+                set(value) {
+                    this.$store.dispatch('setBuiltFiles', 
+                        JSON.parse(JSON.stringify(value))
+                    )
+                }
+            }
+        },
+
+        mounted() {
+            //
         }
     }
 </script>

@@ -15,6 +15,13 @@ Array.prototype.first = function() {
     return this.length ? this[0] : null;
 }
 
+Array.prototype.sortByPath = function() {
+    // app/Http/Controllers/UserController.php
+    // app/Car.php
+    // app/User.php
+    return this.length ? this[0] : null;
+}
+
 // omg why??
 const LINE_BREAK = "\n"
 window.___SINGLE_LINE_BREAK___ = LINE_BREAK
