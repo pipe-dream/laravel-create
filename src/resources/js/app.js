@@ -16,11 +16,48 @@ Array.prototype.first = function() {
 }
 
 Array.prototype.sortByPath = function() {
-    // app/Http/Controllers/UserController.php
-    // app/Car.php
-    // app/User.php
-    return this.length ? this[0] : null;
+    return this.sort((v1,v2) => {
+        let p1 = v1.split("/")
+        let p2 = v2.split("/")
+        
+        for(let i=0; i<Math.min(p1.length, p2.length); i++) {
+            if(p1[i] < p2[i] && p1.length > i+1 ) {
+                return -1
+            }
+        }
+        return 1
+    })
 }
+
+let values = [
+    "app/Car.php",
+    "app/Garage.php",
+    "app/Http/Controllers/CarAPIController.php",
+    "app/Http/Controllers/CarController.php",
+    "app/Http/Controllers/GarageAPIController.php",
+    "app/Http/Controllers/GarageController.php",
+    "app/Http/Controllers/UserAPIController.php",
+    "app/Http/Controllers/UserController.php",
+    "app/User.php",
+    "database/factories/CarFactory.php",
+    "database/factories/GarageFactory.php",
+    "database/factories/UserFactory.php",
+    "database/migrations/2019_05_15_190200_create_users_table.php",
+    "database/migrations/2019_05_15_190201_create_password_resets_table.php",
+    "database/migrations/2019_05_15_190202_create_garages_table.php",
+    "database/migrations/2019_05_15_190203_create_cars_table.php",
+    "database/migrations/2019_05_15_190204_create_car_garage_table.php",
+    "database/seeds/CarSeeder.php",
+    "database/seeds/DatabaseSeeder.php",
+    "database/seeds/GarageSeeder.php",
+    "database/seeds/UserSeeder.php",
+    "routes/api.php",
+    ".env"
+]
+
+let V = ["a", "c", "b"]
+
+console.log(values.sortByPath())
 
 // omg why??
 const LINE_BREAK = "\n"

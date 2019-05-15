@@ -7,9 +7,9 @@
 
         <div class="flex flex-col mt-8 text-center" v-if="this.results.length">
             <p class="flex mx-auto text-grey-darker text-sm text-center mb-8">The following files were injected</p>
-            <notification-card v-for="result in results" v-bind:key="result.path"
+            <notification-card v-for="result in results" v-bind:key="result"
             :type="'info'"
-            :message="result.path"
+            :message="result"
             ></notification-card>
             <hint-box message="Please note changes in your IDE might be overwritten by subsequent builds."></hint-box>       
         </div>
@@ -44,7 +44,7 @@
                     const content = await rawResponse.json();
 
                     this.message = content.message
-                    this.results = this.$store.state.reviewFiles
+                    this.results = this.$store.state.reviewFiles.map(file => file.path)
                 })();
             },
             
@@ -60,7 +60,7 @@
         computed: {
             results: {
                 get() {
-                    return this.$store.state.builtFiles
+                    return this.$store.state.builtFiles.sortByPath()
                 },
 
                 set(value) {
