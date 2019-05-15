@@ -1,19 +1,18 @@
 <template>
-    <div class="flex flex-col max-w-md mx-auto px-8 bg-white pt-4 mt-8 h-full">
-        <HintBox message="Hint: Here we write the files listed in the Review tab. By default we will revert your last build (if any) to eliminate conflicts.">
-        </HintBox>        
-        <div class="flex flex-col text-sm mb-4 mt-8">
-            <div><input type="checkbox" checked class="mr-2">Revert the latest build</div>
-            <div><input type="checkbox" checked class="mr-2">Use Sandbox</div>
+    <div class="flex flex-col max-w-md mx-auto px-8 bg-white pt-4 mt-8 h-full">        
+
+        <button @click="build()"
+            :class="buttonStyle()"
+        >{{buildLabel()}}</button>
+
+        <div class="flex flex-col mt-8 text-center" v-if="this.results.length">
+            <p class="flex mx-auto text-grey-darker text-sm text-center mb-8">The following files were injected</p>
+            <notification-card v-for="result in results" v-bind:key="result.path"
+            :type="'info'"
+            :message="result.path"
+            ></notification-card>
+            <hint-box message="Please note changes in your IDE might be overwritten by subsequent builds."></hint-box>       
         </div>
-
-        <button v-if="!isBuilding" @click="build()" class="bg-blue text-white border bg-white p-2 rounded">Build!</button>
-        <div v-if="isBuilding">LOADING</div>
-
-        <notification-card v-if="message"
-            :type="'success'"
-            :message="message"
-        ></notification-card>       
     </div>  
 </template>
 
@@ -22,8 +21,8 @@
     export default {
         data() {
             return {
-                isBuilding: false,
-                message: false
+                message: false,
+                results: []
             }
         },
 
@@ -46,8 +45,17 @@
                     const content = await rawResponse.json();
 
                     this.message = content.message
+                    this.results = this.$store.state.reviewFiles
                 })();
-            }           
+            },
+            
+            buildLabel() {
+                return this.results.length ? "Clean & Rebuild!" : "Build!"
+            },
+
+            buttonStyle() {
+                return 'bg-blue text-white border bg-white py-4 px-8 rounded'
+            }
         }
     }
 </script>
