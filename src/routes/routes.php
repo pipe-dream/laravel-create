@@ -1,13 +1,6 @@
 <?php 
 
-Route::get('/skeleton', function() {
-    \Ajthinking\Skeleton\SkeletonServiceProvider::publishAssets();
-    return view('skeleton::spa')->with([
-        "settings" => [
-            "isSandboxed" => true
-        ]
-    ]);
-});
+Route::get('/skeleton', '\Ajthinking\Skeleton\Controllers\SkeletonWebController@index');
 
 Route::prefix('skeleton/api')->group(function () {
     Route::get('/templates', '\Ajthinking\Skeleton\Controllers\SkeletonAPIController@templates');
