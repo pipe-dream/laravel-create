@@ -14,7 +14,6 @@ class SkeletonWebController extends BaseController
         return view('skeleton::spa')->with([
             "settings" => [
                 "isSandboxed" => env('SKELETON_IS_SANDBOXED', true),
-                "revertHistory" => env('SKELETON_REVERT_HISTORY', true),
             ]
         ]);        
     }
