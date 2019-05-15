@@ -18,6 +18,7 @@
 </template>
 
 <script>
+    import Config from '../../../Config.js'
     export default {
         data() {
             return {
@@ -38,8 +39,8 @@
                         },
                         body: JSON.stringify({
                             reviewFiles: this.$store.state.reviewFiles,
-                            isSandboxed: true,
-                            reverseHistory: true
+                            isSandboxed: Config.isSandboxed,
+                            reverseHistory: Config.reverseHistory,
                         })
                     });
                     const content = await rawResponse.json();

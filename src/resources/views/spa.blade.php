@@ -13,7 +13,9 @@
     <!-- Styles (avoid using Laravels publish feature) -->
     
     <link href="{{ url('vendor/ajthinking/skeleton/css/app.css') }}" rel="stylesheet">
-    
+    <script>
+        let __ENV__ = {!! json_encode($settings) !!}
+    </script>
 </head>
 <body>
     <div id="app">

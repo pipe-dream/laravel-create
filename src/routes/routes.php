@@ -2,7 +2,11 @@
 
 Route::get('/skeleton', function() {
     \Ajthinking\Skeleton\SkeletonServiceProvider::publishAssets();
-    return view('skeleton::spa');
+    return view('skeleton::spa')->with([
+        "settings" => [
+            "isSandboxed" => true
+        ]
+    ]);
 });
 
 Route::prefix('skeleton/api')->group(function () {
