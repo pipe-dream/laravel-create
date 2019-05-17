@@ -61,7 +61,7 @@
         computed: {
             results: {
                 get() {
-                    return this.$store.state.builtFiles
+                    return this.$store.state.builtFiles.sortByPath()
                 },
 
                 set(value) {
