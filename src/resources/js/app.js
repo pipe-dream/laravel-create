@@ -16,48 +16,56 @@ Array.prototype.first = function() {
 }
 
 Array.prototype.sortByPath = function() {
-    return this.sort((v1,v2) => {
-        let p1 = v1.split("/")
-        let p2 = v2.split("/")
-        
-        for(let i=0; i<Math.min(p1.length, p2.length); i++) {
-            if(p1[i] < p2[i] && p1.length > i+1 ) {
-                return -1
-            }
+    let pathSorter = (first,second) => {
+        let firstParts = first.split("/")
+        let secondParts = second.split("/")
+    
+        for(let i=0; i<Math.min(firstParts.length, secondParts.length); i++) {
+            let FIRST_PART_IS_FOLDER = firstParts.length > i + 1
+            let SECOND_PART_IS_FOLDER = secondParts.length > i + 1
+    
+            // Folders always has precedence
+            if(FIRST_PART_IS_FOLDER && !SECOND_PART_IS_FOLDER) return -1;        
+            if(!FIRST_PART_IS_FOLDER && SECOND_PART_IS_FOLDER) return 1;        
+    
+            // Between equals (files or folders) use alfabetic
+            if(firstParts[i] < secondParts[i]) return -1;
+            if(firstParts[i] > secondParts[i]) return 1;
         }
-        return 1
-    })
+        
+        // Default
+        return 0
+
+        // // Test data
+        // let values = [
+        //     "app/Garage.php",
+        //     ".env",    
+        //     "app/Car.php",    
+        //     "app/Http/Controllers/CarAPIController.php",
+        //     "app/Http/Controllers/CarController.php",
+        //     "app/Http/Controllers/GarageAPIController.php",
+        //     "app/Http/Controllers/GarageController.php",
+        //     "app/Http/Controllers/UserAPIController.php",
+        //     "app/Http/Controllers/UserController.php",
+        //     "app/User.php",
+        //     "database/factories/CarFactory.php",
+        //     "database/factories/GarageFactory.php",
+        //     "database/factories/UserFactory.php",
+        //     "database/migrations/2019_05_15_190200_create_users_table.php",
+        //     "database/migrations/2019_05_15_190201_create_password_resets_table.php",
+        //     "database/migrations/2019_05_15_190202_create_garages_table.php",
+        //     "database/migrations/2019_05_15_190203_create_cars_table.php",
+        //     "database/migrations/2019_05_15_190204_create_car_garage_table.php",
+        //     "database/seeds/CarSeeder.php",
+        //     "database/seeds/DatabaseSeeder.php",
+        //     "database/seeds/GarageSeeder.php",
+        //     "database/seeds/UserSeeder.php",
+        //     "routes/api.php",
+        // ]
+    }
+
+    return this.sort(pathSorter);
 }
-
-let values = [
-    "app/Car.php",
-    "app/Garage.php",
-    "app/Http/Controllers/CarAPIController.php",
-    "app/Http/Controllers/CarController.php",
-    "app/Http/Controllers/GarageAPIController.php",
-    "app/Http/Controllers/GarageController.php",
-    "app/Http/Controllers/UserAPIController.php",
-    "app/Http/Controllers/UserController.php",
-    "app/User.php",
-    "database/factories/CarFactory.php",
-    "database/factories/GarageFactory.php",
-    "database/factories/UserFactory.php",
-    "database/migrations/2019_05_15_190200_create_users_table.php",
-    "database/migrations/2019_05_15_190201_create_password_resets_table.php",
-    "database/migrations/2019_05_15_190202_create_garages_table.php",
-    "database/migrations/2019_05_15_190203_create_cars_table.php",
-    "database/migrations/2019_05_15_190204_create_car_garage_table.php",
-    "database/seeds/CarSeeder.php",
-    "database/seeds/DatabaseSeeder.php",
-    "database/seeds/GarageSeeder.php",
-    "database/seeds/UserSeeder.php",
-    "routes/api.php",
-    ".env"
-]
-
-let V = ["a", "c", "b"]
-
-console.log(values.sortByPath())
 
 // omg why??
 const LINE_BREAK = "\n"

@@ -18,6 +18,7 @@
 
 <script>
     import Config from '../../../Config.js'
+
     export default {
         data() {
             return {
@@ -60,7 +61,7 @@
         computed: {
             results: {
                 get() {
-                    return this.$store.state.builtFiles.sortByPath()
+                    return this.$store.state.builtFiles
                 },
 
                 set(value) {
