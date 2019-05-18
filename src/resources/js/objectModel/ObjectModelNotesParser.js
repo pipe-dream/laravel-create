@@ -15,6 +15,8 @@ export default class ObjectModelNoteParser {
 
     clean() {
         this.text = this.text
+            // remove comments
+            .replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, "")        
             // trim preciding line space
             .replace(/[^\S\r\n]/gm,"")        
             // trim trailing line space
@@ -25,9 +27,6 @@ export default class ObjectModelNoteParser {
             .replace(/\n+$/, "")
             // remove exessive newlines
             .replace(/\n\s+\n/, ___DOUBLE_LINE_BREAK___)
-            // remove comments
-            .replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, "")
-        
         return this;
     }
 

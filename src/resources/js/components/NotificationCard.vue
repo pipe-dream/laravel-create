@@ -1,6 +1,5 @@
 <template>
     <div :class="style()">
-        <i class="fas fa-check-square mr-2"></i>
         {{ message }}
     </div>
 </template>
