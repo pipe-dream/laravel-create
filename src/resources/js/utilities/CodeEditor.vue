@@ -29,7 +29,11 @@ module.exports = {
         theme:String,
         height:true,
         width:true,
-        options:Object
+        options:Object,
+        placeholder: {
+            type: String,
+            default: ""
+        }
     },
     data: function () {
         return {
@@ -43,6 +47,22 @@ module.exports = {
                 return n+"px";
             }
             return n;
+        },
+
+        updatePlaceholder: (editor) => {
+            var shouldShow = !editor.session.getValue().length;
+            var node = editor.renderer.emptyMessageNode;
+            if (!shouldShow && node) {
+                editor.renderer.scroller.removeChild(editor.renderer.emptyMessageNode);
+                editor.renderer.emptyMessageNode = null;
+            } else if (shouldShow && !node) {
+                node = editor.renderer.emptyMessageNode = document.createElement("div");
+                // How to make a multiline placeholder?
+                node.textContent = editor.placeholder
+                node.className = "ace_invisible ace_emptyMessage"
+                node.style.padding = "0 9px 0 9px"
+                editor.renderer.scroller.appendChild(node);
+            }
         }
     },
     watch:{
@@ -86,6 +106,7 @@ module.exports = {
         require('brace/ext/language_tools') //language extension prerequsite...        
         require('brace/mode/' + lang)    
         var editor = vm.editor = ace.edit(this.$el);
+        editor.placeholder = this.placeholder
 
         this.$emit('init',editor);                
         
@@ -96,12 +117,15 @@ module.exports = {
         editor.setValue(this.value,1);
         this.contentBackup = this.value;
 
-        editor.on('change',function () {
+        editor.on('change',() => {
             var content = editor.getValue();
             vm.$emit('input',content);
             vm.contentBackup = content;
+            this.updatePlaceholder(editor)
         });
-        
+
+        setTimeout(this.updatePlaceholder(editor), 100);
+
         editor.setOptions({
             minLines: 20,
             maxLines: 1000,  

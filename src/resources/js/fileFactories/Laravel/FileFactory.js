@@ -1,7 +1,8 @@
 
 import defaultSchema from './preferences/defaultSchema'
-import userSystemSketch from './/sketches/userSystemSketch'
-import sampleAppSketch from './/sketches/sampleAppSketch'
+import userSystemSketch from './sketches/userSystemSketch'
+import sampleAppSketch from './sketches/sampleAppSketch'
+import helpSketch from './sketches/helpSketch'
 import collect from 'collect.js'
 const pipes = require.context('./pipes', false, /\.js$/);
 
@@ -35,6 +36,10 @@ export default class FileFactory {
     
     static sampleApp() {
         return sampleAppSketch;
+    }
+    
+    static helpApp() {
+        return helpSketch;
     }    
 
     static from(objectModelCollection) {

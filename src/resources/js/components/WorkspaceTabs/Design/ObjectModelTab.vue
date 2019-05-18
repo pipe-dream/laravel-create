@@ -6,10 +6,12 @@
                 class="w-full bg-grey-lightest rounded p-2 text-sm border" 
                 v-model="objectModelNotes"
                 lang="json"
+                :placeholder="placeholder"
             ></code-editor>
             <div class="mt-1">
                 <button @click="addUserSystem()" :class="buttonStyle">+ user system</button>
                 <button @click="replaceWithSampleApp()" :class="buttonStyle">sample app</button>
+                <button @click="replaceWithHelpApp()" :class="buttonStyle">help</button>
             </div>             
 
         </div>
@@ -35,6 +37,8 @@
         data() {
             return {
                 buttonStyle: "ml-2 text-xs border p-1 rounded shadow bg-white text-black px-2",
+                // How to make a multiline placeholder?
+                placeholder: "Start typing here. Click the buttons below to get some help on the syntax. "
             }
         },
 
@@ -76,6 +80,12 @@
             replaceWithSampleApp() {
                 this.$store.dispatch('setObjectModelNotes', 
                     Config.FileFactory.sampleApp()
+                )
+            },
+            
+            replaceWithHelpApp() {
+                this.$store.dispatch('setObjectModelNotes', 
+                    Config.FileFactory.helpApp()
                 )
             },            
         }
