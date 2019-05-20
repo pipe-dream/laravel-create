@@ -1,5 +1,4 @@
 import Config from '../Config'
-import recursiveJSONIterator from './recursiveJSONIterator'
 const mergeJSON = require('deepmerge')
 import store from '../store'
 
