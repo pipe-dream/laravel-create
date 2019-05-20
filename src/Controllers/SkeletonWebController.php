@@ -13,7 +13,7 @@ class SkeletonWebController extends BaseController
 
         return view('skeleton::spa')->with([
             "settings" => [
-                "isSandboxed" => env('SKELETON_IS_SANDBOXED', true),
+                "isSandboxed" => env('SKELETON_IS_SANDBOXED', false),
             ]
         ]);        
     }
