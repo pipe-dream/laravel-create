@@ -33,7 +33,9 @@ export default new Vuex.Store({
 
         schema: [],
 
-        preferences: Config.FileFactory.defaultSchema()
+        preferences: Config.FileFactory.defaultSchema(),
+
+        scripts: []
     },
     mutations: {
         navigate(state, {namespace, tab}) {
@@ -61,6 +63,10 @@ export default new Vuex.Store({
         setTemplates(state, templates) {
             state.templates = templates
         },
+
+        setScripts(state, scripts) {
+            state.scripts = scripts
+        },        
 
         setTemplate(state, file) {
             state.templates[file.name] = file.content
@@ -127,6 +133,12 @@ export default new Vuex.Store({
                 context.commit('setTemplates', templates)
             )            
         },
+
+        setScripts(context) {
+            fetch('/skeleton/api/scripts').then(result => result.json()).then(scripts => 
+                context.commit('setScripts', scripts)
+            )            
+        },        
 
         setTemplate(context, file) {
             context.commit('setTemplate', file)

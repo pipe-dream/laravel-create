@@ -18,6 +18,7 @@
         },
 
         mounted() {
+            this.$store.dispatch('setScripts')
             this.$store.dispatch('setTemplates')
         }
     }
