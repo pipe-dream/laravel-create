@@ -8,10 +8,7 @@ const EntityTypes = { UserEntity, ModelEntity, TableEntity, PivotTableEntity};
 import F from '../utilities/Formatter'
 
 export default class ObjectModelEntityFactory {
-    constructor() {
-
-    }
-
+    
     static fromSegments(segments) {
         let factory = new this()
         factory.segments = segments
