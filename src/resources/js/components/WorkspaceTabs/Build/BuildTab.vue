@@ -44,7 +44,7 @@
                                 {
                                     name: "setupSqlite",
                                     type: "Command",
-                                    command: 'touch database/database.sqlite',
+                                    command: 'touch ../database/database.sqlite',
                                     runInSandbox: false,
                                 },                                
                                 {

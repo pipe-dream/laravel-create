@@ -31,7 +31,7 @@ export default new Vuex.Store({
 
         templates: {},
 
-        schema: [],
+        schema: {},
 
         preferences: Config.FileFactory.defaultSchema(),
 
