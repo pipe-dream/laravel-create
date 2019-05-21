@@ -4,7 +4,7 @@
             <div class="flex h-8 bg-blue text-white border text-center justify-center items-center text-sm">sketch</div>
             <code-editor
                 class="w-full bg-grey-lightest rounded p-2 text-sm border" 
-                v-model="objectModelNotes"
+                v-model="sketch"
                 lang="json"
                 :placeholder="placeholder"
             ></code-editor>
@@ -43,13 +43,13 @@
         },
 
         computed: {
-            objectModelNotes: {
+            sketch: {
                 get() {
-                    return this.$store.state.objectModelNotes            
+                    return this.$store.state.sketch            
                 },
 
                 set(value) {
-                    this.$store.dispatch('setObjectModelNotes', value)
+                    this.$store.dispatch('setSketch', value)
                 }
             },
 
@@ -72,19 +72,19 @@
 
         methods: {
             addUserSystem() {
-                this.$store.dispatch('setObjectModelNotes', 
-                    this.objectModelNotes + Config.FileFactory.userSystemSketch()
+                this.$store.dispatch('setSketch', 
+                    this.sketch + Config.FileFactory.userSystemSketch()
                 )
             },
 
             replaceWithSampleApp() {
-                this.$store.dispatch('setObjectModelNotes', 
+                this.$store.dispatch('setSketch', 
                     Config.FileFactory.sampleApp()
                 )
             },
             
             replaceWithHelpApp() {
-                this.$store.dispatch('setObjectModelNotes', 
+                this.$store.dispatch('setSketch', 
                     Config.FileFactory.helpApp()
                 )
             },            

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import Parser from '../objectModel/ObjectModelNotesParser'
+import Parser from '../objectModel/SketchParser'
 import ObjectModelCollection from '../objectModel/ObjectModelCollection'
 import ObjectModelEntityFactory from '../objectModel/ObjectModelEntityFactory'
 import Config from '../Config'
@@ -22,7 +22,7 @@ export default new Vuex.Store({
 
         availablePipes: Config.FileFactory.pipes(),
 
-        objectModelNotes: "",
+        sketch: "",
 
         reviewFiles: [],
 
@@ -39,8 +39,8 @@ export default new Vuex.Store({
             state.navigation[namespace] = tab
         },
 
-        setObjectModelNotes(state, content) {
-            state.objectModelNotes = content
+        setSketch(state, content) {
+            state.sketch = content
         },
 
         setSchema(state, content) {
@@ -78,9 +78,9 @@ export default new Vuex.Store({
             context.commit('navigate', payload)
         },
 
-        setObjectModelNotes(context, objectModelNotes) {
-            context.commit('setObjectModelNotes', objectModelNotes)
-            context.dispatch('compileSchema', objectModelNotes)
+        setSketch(context, sketch) {
+            context.commit('setSketch', sketch)
+            context.dispatch('compileSchema', sketch)
         },
 
         setSchema(context, schema) {
@@ -111,10 +111,10 @@ export default new Vuex.Store({
             context.commit('setReviewFiles', files)
         },
         
-        compileSchema(context, objectModelNotes) {
+        compileSchema(context, sketch) {
             let schema = ObjectModelCollection.fromEntities(
                 ObjectModelEntityFactory.fromSegments(
-                    Parser.parse(objectModelNotes).segment()
+                    Parser.parse(sketch).segment()
                 )
             ).serializeSchema()
 

@@ -1,12 +1,12 @@
 import Segment from './Segment'
 
-export default class ObjectModelNoteParser {
+export default class SketchParser {
     constructor(text) {
         this.text = text
     }
 
     static makeWithText(text) {
-        return new ObjectModelNoteParser(text)
+        return new SketchParser(text)
     }
 
     static parse(text) {
