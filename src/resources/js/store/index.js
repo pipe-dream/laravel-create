@@ -22,6 +22,8 @@ export default new Vuex.Store({
 
         availablePipes: Config.FileFactory.pipes(),
 
+        selectedPipes: Config.FileFactory.pipes().map(pipe => pipe.name),
+
         sketch: "",
 
         reviewFiles: [],
@@ -32,7 +34,7 @@ export default new Vuex.Store({
 
         schema: {},
 
-        preferences: Config.FileFactory.defaultSchema(),
+        preferences: Config.FileFactory.defaultPreferences(),
     },
     mutations: {
         navigate(state, {namespace, tab}) {
@@ -71,7 +73,19 @@ export default new Vuex.Store({
 
         setBuiltFiles(state, files) {
             state.builtFiles = files
-        }        
+        },
+        
+        toggleSelectedPipe(state, name) {
+            if(state.selectedPipes.includes(name)) {
+                state.selectedPipes = state.selectedPipes.filter(pipe => pipe != name)
+                return
+            }
+
+            state.selectedPipes = [
+                ...state.selectedPipes,
+                name
+            ]
+        }
     },
     actions: {
         navigate(context, payload) {
@@ -139,7 +153,11 @@ export default new Vuex.Store({
         
         setBuiltFiles(context, files) {
             context.commit('setBuiltFiles', files)
-        }        
+        },
+        
+        toggleSelectedPipe(context, name) {
+            context.commit('toggleSelectedPipe', name)
+        }
     },
     getters: {
         templates: state => state.templates,

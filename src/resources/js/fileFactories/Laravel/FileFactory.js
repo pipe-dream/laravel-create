@@ -1,5 +1,5 @@
 
-import defaultSchema from './preferences/defaultSchema'
+import defaultPreferences from './preferences/defaultSchema'
 import userSystemSketch from './sketches/userSystemSketch'
 import sampleAppSketch from './sketches/sampleAppSketch'
 import helpSketch from './sketches/helpSketch'
@@ -26,8 +26,8 @@ export default class FileFactory {
         // ]
     }
 
-    static defaultSchema() {
-        return defaultSchema;
+    static defaultPreferences() {
+        return defaultPreferences;
     }
 
     static userSystemSketch() {

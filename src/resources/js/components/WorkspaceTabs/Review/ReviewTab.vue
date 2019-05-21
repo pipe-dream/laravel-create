@@ -11,7 +11,8 @@
                         :class="listingStyleFor(file)"
                         @click="tab = file.path; $store.dispatch('navigate', {namespace: 'review', tab})"
                     >
-                        {{ file.path }}
+                        <input type="checkbox" checked class="mr-2">
+                        {{ file.path }} 
                     </div>
                 </div>
                 <div class="flex flex-col flex-1 bg-white ml-2 border p-2">
