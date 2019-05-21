@@ -24,6 +24,8 @@ export default new Vuex.Store({
 
         selectedPipes: Config.FileFactory.pipes().map(pipe => pipe.name),
 
+        selectedFiles: {},
+
         sketch: "",
 
         reviewFiles: [],
@@ -51,6 +53,13 @@ export default new Vuex.Store({
 
         setReviewFiles(state, files) {
             state.reviewFiles = files
+            
+            // set newly created files to selected
+            files.filter(file => state.selectedFiles[file.path] === undefined )
+                .forEach(file => {
+                    state.selectedFiles[file.path] = true
+            })
+            
         },
 
         setReviewFile(state, file) {
@@ -85,6 +94,10 @@ export default new Vuex.Store({
                 ...state.selectedPipes,
                 name
             ]
+        },
+
+        toggleSelectedFile(state, path) {
+            state.selectedFiles[path] = !state.selectedFiles[path]
         }
     },
     actions: {
@@ -119,7 +132,9 @@ export default new Vuex.Store({
             let files = Config.FileFactory.from(
                 ObjectModelCollection.fromSchema(schema)                   
             ).withPipes(
-                     context.state.availablePipes
+                context.state.availablePipes.filter(pipe => {
+                    return context.state.selectedPipes.includes(pipe.name)
+                })
             ).calculateFiles()
 
             context.commit('setReviewFiles', files)
@@ -157,7 +172,12 @@ export default new Vuex.Store({
         
         toggleSelectedPipe(context, name) {
             context.commit('toggleSelectedPipe', name)
-        }
+            context.dispatch('compileFiles', context.state.schema)
+        },
+
+        toggleSelectedFile(context, path) {
+            context.commit('toggleSelectedFile', path)
+        },        
     },
     getters: {
         templates: state => state.templates,

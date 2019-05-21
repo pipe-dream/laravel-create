@@ -29,6 +29,7 @@
 
         methods: {
             build() {
+
                 (async () => {
                     const rawResponse = await fetch('/skeleton/api/build', {
                         method: 'POST',
@@ -37,7 +38,9 @@
                         'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
-                            reviewFiles: this.$store.state.reviewFiles,
+                            reviewFiles: this.$store.state.reviewFiles.filter(file => {
+                                return this.$store.state.selectedFiles[file.path]
+                            }),
                             isSandboxed: Config.isSandboxed,
                             reverseHistory: Config.reverseHistory
                         })
@@ -45,7 +48,9 @@
                     const content = await rawResponse.json();
 
                     this.message = content.message
-                    this.results = this.$store.state.reviewFiles.map(file => file.path)
+                    this.results = this.$store.state.reviewFiles.filter(file => {
+                        return this.$store.state.selectedFiles[file.path]
+                    }).map(file => file.path)
                 })();
             },
             

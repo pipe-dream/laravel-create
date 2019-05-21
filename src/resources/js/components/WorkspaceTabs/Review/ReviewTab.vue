@@ -11,7 +11,7 @@
                         :class="listingStyleFor(file)"
                         @click="tab = file.path; $store.dispatch('navigate', {namespace: 'review', tab})"
                     >
-                        <input type="checkbox" checked class="mr-2">
+                        <input type="checkbox" :checked="isChecked(file.path)" @click="toggle(file.path)" class="mr-2">
                         {{ file.path }} 
                     </div>
                 </div>
@@ -97,7 +97,15 @@
                 let passive = 'bg-white'
                 let active = 'bg-blue text-white hover:bg-blue'
                 return this.isActiveFile(file) ? common + active : common + passive
-            }
+            },
+
+            isChecked(path) {
+                return Boolean(this.$store.state.selectedFiles[path])
+            },
+
+            toggle(path) {
+                this.$store.dispatch('toggleSelectedFile', path)
+            }            
         },
     }
 </script>
