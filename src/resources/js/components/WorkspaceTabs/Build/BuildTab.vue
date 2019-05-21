@@ -39,21 +39,7 @@
                         body: JSON.stringify({
                             reviewFiles: this.$store.state.reviewFiles,
                             isSandboxed: Config.isSandboxed,
-                            reverseHistory: Config.reverseHistory,
-                            scripts: [
-                                {
-                                    name: "setupSqlite",
-                                    type: "Command",
-                                    command: 'touch ../database/database.sqlite',
-                                    runInSandbox: false,
-                                },                                
-                                {
-                                    name: "migrateFreshAndSeed",
-                                    type: "Artisan",
-                                    command: 'migrate:fresh --seed',
-                                    runInSandbox: false,
-                                },
-                            ]
+                            reverseHistory: Config.reverseHistory
                         })
                     });
                     const content = await rawResponse.json();

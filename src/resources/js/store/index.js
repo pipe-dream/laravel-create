@@ -4,7 +4,6 @@ import Parser from '../objectModel/ObjectModelNotesParser'
 import ObjectModelCollection from '../objectModel/ObjectModelCollection'
 import ObjectModelEntityFactory from '../objectModel/ObjectModelEntityFactory'
 import Config from '../Config'
-import Preference from '../utilities/Preference'
 const mergeJSON = require('deepmerge')
 
 Vue.use(Vuex)
@@ -34,8 +33,6 @@ export default new Vuex.Store({
         schema: {},
 
         preferences: Config.FileFactory.defaultSchema(),
-
-        scripts: []
     },
     mutations: {
         navigate(state, {namespace, tab}) {
@@ -62,10 +59,6 @@ export default new Vuex.Store({
         
         setTemplates(state, templates) {
             state.templates = templates
-        },
-
-        setScripts(state, scripts) {
-            state.scripts = scripts
         },        
 
         setTemplate(state, file) {
@@ -131,12 +124,6 @@ export default new Vuex.Store({
         setTemplates(context) {
             fetch('/skeleton/api/templates').then(result => result.json()).then(templates => 
                 context.commit('setTemplates', templates)
-            )            
-        },
-
-        setScripts(context) {
-            fetch('/skeleton/api/scripts').then(result => result.json()).then(scripts => 
-                context.commit('setScripts', scripts)
             )            
         },        
 

@@ -32,36 +32,12 @@ class SkeletonAPIController extends BaseController
             "migrate",
             "seed"
         ];
-    }
-    
-    public function preScripts()
-    {
-        //
-    }
-
-    public function postScripts()
-    {
-        collect($this->args->scripts)->each(function($script) {
-            if($script->runInSandbox || (!$this->args->isSandboxed)) {
-    
-                if($script->type == "Artisan") {
-                    return Artisan::call($script->command);
-                }
-    
-                if($script->type == "Terminal") {
-                    return exec($script->command);
-                }
-            }        
-        }); 
-    }    
+    }   
 
     public function build()
     {
         // Setup project - sandboxed or regular
         $this->setupProjectEnvironment();
-
-        // Run any pre scripts
-        $this->preScripts();
 
         // Optionally reverse the previous design iteration
         // This is useful to remove previous mistakes and timestamp conflicts
@@ -75,9 +51,6 @@ class SkeletonAPIController extends BaseController
 
         // Save the changes we made
         $this->project->persistHistory();
-
-        // Run any post scripts
-        $this->postScripts();
 
         return response([
             "message" => "Successfully stored files!"
