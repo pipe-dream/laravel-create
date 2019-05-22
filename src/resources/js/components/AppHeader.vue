@@ -8,14 +8,20 @@
             <span class="font-semibold text-xl tracking-tight">Pipe Dream</span>
         </div>    
         <div class="flex mr-6 items-center">
-            <a class="text-sm text-white hover:text-blue-darker no-underline" href="#">new-project</a>
+            <a class="text-sm text-white hover:text-blue-darker no-underline" href="#">{{appName}}</a>
         </div>
     </div>
 </div>
 </template>
 
 <script>
+    import Config from '../Config'
+
     export default {
-        //
+        data() {
+            return {
+                appName: Config.appName
+            }
+        }
     }
 </script>
