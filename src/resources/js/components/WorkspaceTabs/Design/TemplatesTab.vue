@@ -1,21 +1,24 @@
 <template>
-    <div class="flex mx-auto max-w-3xl px-8 bg-white pt-4">
-        <div class="flex flex-1 mx-auto text-sm">
-            <div class="flex flex-col bg-white text-xs border">
-                <div v-for="file in templates"
-                    :key="file.name"
-                    :class="listingStyleFor(file)"
-                    @click="tab = file.name; $store.dispatch('navigate', {namespace: 'template', tab})"
-                >
-                    {{ file.name }}
+    <div class="flex flex-col max-w-3xl mx-auto px-8 bg-white pt-4">
+        <HintBox :message="hintMessage"></HintBox>
+        <div class="flex w-full">
+            <div class="flex flex-1 text-sm">
+                <div class="flex flex-col bg-white text-xs border">
+                    <div v-for="file in templates"
+                        :key="file.name"
+                        :class="listingStyleFor(file)"
+                        @click="tab = file.name; $store.dispatch('navigate', {namespace: 'template', tab})"
+                    >
+                        {{ file.name }}
+                    </div>
                 </div>
-            </div>
-            <div class="flex flex-col flex-1 bg-white ml-2 border p-2">
-                <code-editor
-                    class="w-full bg-white rounded text-sm" 
-                    v-model="activeFileContent"
-                    lang="php"
-                ></code-editor>
+                <div class="flex flex-col flex-1 bg-white ml-2 border p-2">
+                    <code-editor
+                        class="w-full bg-white rounded text-sm" 
+                        v-model="activeFileContent"
+                        lang="php"
+                    ></code-editor>
+                </div>
             </div>
         </div>
     </div>  
@@ -23,6 +26,12 @@
 
 <script>
     export default {
+        data() {
+            return {
+                hintMessage: "Here you can modify the templates used to create your files."
+            }
+        },
+
         computed: {
             templates() {
                 return Object.keys(this.$store.state.templates).map(key => {

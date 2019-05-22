@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col mx-auto max-w-3xl px-8 bg-white pt-4 items-center">
         <HintBox v-if="reviewFiles.length"
-            message="Hint: Here you can do any finishing touches. Remember - further changes in the Design tab will overwrite your edits">
+            message="Here you can do any finishing touches or ignore files. Be aware - further changes in the Design tab will overwrite your edits.">
         </HintBox>
         <div class="flex mx-auto w-full">
             <div class="flex flex-1 mx-auto text-sm" v-if="reviewFiles.length">

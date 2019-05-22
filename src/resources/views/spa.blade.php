@@ -21,8 +21,7 @@
 <body>
     <div id="app">
         <app-header></app-header>
-        <app-splash v-if="$store.state.navigation.showSplash && $store.state.navigation.showSplash === true"></app-splash>
-        <app-workspace v-else></app-workspace>
+        <app-workspace></app-workspace>
     </div>
     <script type="text/javascript" src="{{ url('vendor/ajthinking/skeleton/js/app.js') }}"></script>
 </body>

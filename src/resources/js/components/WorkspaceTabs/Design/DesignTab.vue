@@ -12,7 +12,7 @@
     export default {
         data() {
             return {
-                availableTabs: ['Object model', 'templates', 'pipes']
+                availableTabs: ['Object model', 'templates', 'settings']
             }
         },
 

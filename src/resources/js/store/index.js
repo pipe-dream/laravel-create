@@ -13,7 +13,6 @@ export default new Vuex.Store({
     state: {
         // Keep track of active tabs in each section
         navigation: {
-            showSplash: true,
             workspace: "Design",
             design: "Object model",
             template: "",
