@@ -1,17 +1,20 @@
 <template>
-    <div class="flex flex-col max-w-md mx-auto px-8 bg-white pt-4 mt-8 h-full">        
-        <hint-box message="Please note changes in your IDE might be overwritten by subsequent builds."></hint-box>
-        <button @click="build()"
-            :class="buttonStyle()"
-        >{{buildLabel()}}</button>
+    <div class="flex flex-col max-w-md mx-auto px-8 bg-white pt-4 h-full">        
+        <img v-if="!this.results.length" src="/img/build.gif">
 
         <div class="flex flex-col mt-8 text-center" v-if="this.results.length">
-            <p class="flex mx-auto text-grey-darker text-sm text-center mb-8">The following files were injected</p>
+            <div class="mx-auto my-4 font-semibold p-4 bg-white text-blue text-xs border rounded border-blue shadow">
+                Success! The following files were injected
+            </div>            
             <notification-card v-for="result in results" v-bind:key="result"
                 :type="'info'"
                 :message="result"
             ></notification-card>       
         </div>
+
+        <button class="mt-4" @click="build()"
+            :class="buttonStyle()"
+        >{{buildLabel()}}</button>        
     </div>  
 </template>
 
