@@ -12,9 +12,10 @@
             ></notification-card>       
         </div>
 
-        <button class="mt-4" @click="build()"
+        <button v-if="hasSomethingToBuild()" class="mt-4" @click="build()"
             :class="buttonStyle()"
-        >{{buildLabel()}}</button>        
+        >{{buildLabel()}}</button>
+        <hint-box v-else message="No files to build yet."></hint-box>        
     </div>  
 </template>
 
@@ -30,6 +31,10 @@
 
 
         methods: {
+            hasSomethingToBuild() {
+                return Boolean(this.$store.state.reviewFiles.length)
+            },
+
             build() {
 
                 (async () => {

@@ -8,9 +8,10 @@ export default class ObjectModelEntity {
         this.relationships = {}
     }
 
-    static fromSegment(segment) {
+    static fromSegment(segment, allSegments) {
         let entity = new this()
         entity.name = segment.name
+        entity.allSegments = allSegments
         // Sort and only keep unique attributes
         let attributeRows = [
             ... new Set([
@@ -19,7 +20,7 @@ export default class ObjectModelEntity {
                 ... entity.optionalColumns(['created_at', 'updated_at']),
             ])
         ]
-        entity.attributes = attributeRows.map(name => AttributeFactory.make(name, entity))        
+        entity.attributes = attributeRows.map(name => AttributeFactory.make(name, entity, allSegments))        
         return entity
     }
 
@@ -52,7 +53,7 @@ export default class ObjectModelEntity {
 
         this.attributes = this.attributes.concat(
             attributeNames.map(attributeName => {
-                return AttributeFactory.make(attributeName, this)
+                return AttributeFactory.make(attributeName, this, this.allSegments)
             })
         )
     }

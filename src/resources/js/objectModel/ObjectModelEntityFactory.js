@@ -43,12 +43,12 @@ export default class ObjectModelEntityFactory {
 
     buildEntities() {
         return this.segments.map(segment => {
-            if(segment.hasUserModel()) return UserEntity.fromSegment(segment)
-            if(segment.hasModel()) return ModelEntity.fromSegment(segment)
-            if(this.isPivotTableEntity(segment)) return PivotTableEntity.fromSegment(segment)
+            if(segment.hasUserModel()) return UserEntity.fromSegment(segment, this.segments)
+            if(segment.hasModel()) return ModelEntity.fromSegment(segment, this.segments)
+            if(this.isPivotTableEntity(segment)) return PivotTableEntity.fromSegment(segment, this.segments)
 
             // default
-            return TableEntity.fromSegment(segment)
+            return TableEntity.fromSegment(segment, this.segments)
         })
     }
 

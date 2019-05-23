@@ -4,13 +4,14 @@ import F from '../utilities/Formatter'
 import getDataType from './attributePropertyResolvers/getDataType'
 
 export default class AttributeFactory {
-    constructor(name, parent) {
+    constructor(name, parent, allSegments = []) {
         this.name = name
         this.parent = parent
+        this.allSegments = allSegments
     }
 
-    static make(name, parent) {
-        let factory = new this(name, parent)
+    static make(name, parent, allSegments = []) {
+        let factory = new this(name, parent, allSegments)
 
         return new Attribute(
             {
@@ -43,7 +44,12 @@ export default class AttributeFactory {
 
     getForeign() {
         let matches = (new RegExp("^(.*)_id$")).exec(this.name)
-        return matches ? F.snakeCase(F.pluralize(matches[1])) : null
+        let allOtherModelNames = this.allSegments.map(segment => segment.name)
+            .filter(name => {
+                return name != F.pascalCase(this.parent.name)
+            })
+
+        return matches && allOtherModelNames.includes(F.pascalCase(matches[1])) ? F.snakeCase(F.pluralize(matches[1])) : null
     }
 
     getCast() {
