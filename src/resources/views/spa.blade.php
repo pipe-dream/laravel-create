@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <script>
         let __ENV__ = {!! json_encode($settings) !!}
+        
     </script>
 </head>
 <body>
@@ -24,5 +25,7 @@
         <app-workspace></app-workspace>
     </div>
     <script type="text/javascript" src="{{ url('vendor/ajthinking/skeleton/js/app.js') }}"></script>
+    <!-- import __GITHUB_DUMP__  -->
+    <script type="text/javascript" src="{{ url('vendor/ajthinking/skeleton/data/github.js') }}"></script>
 </body>
 </html>

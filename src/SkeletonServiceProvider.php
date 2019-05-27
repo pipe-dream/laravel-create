@@ -36,6 +36,11 @@ class SkeletonServiceProvider extends ServiceProvider
     * Please fix this
     */
     public static function publishAssets() {
+        \File::copy(
+            __DIR__ . '/../data/dataTypeGithubDump.js',
+            public_path('vendor/ajthinking/skeleton/data/github.js')
+        );
+
         \File::copyDirectory(
             __DIR__ . '/public',
             public_path('vendor/ajthinking/skeleton')

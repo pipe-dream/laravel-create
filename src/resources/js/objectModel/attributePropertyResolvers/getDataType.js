@@ -1,3 +1,5 @@
+//import dataTypeGithubDump from '../../../../../data/dataTypeGithubDump.js'
+
 /* local helper class assisting getDataType() function */
 class DataTypeResolver {
     constructor(name) {
@@ -47,6 +49,10 @@ class DataTypeResolver {
     default(name) {
         return "string"
     }
+
+    github(name) {
+        return name in __GITHUB_DUMP__ ? __GITHUB_DUMP__[name] : false
+    }
     
     rules() { 
         return {
@@ -73,6 +79,7 @@ export default function(name) {
         //resolver.overridden(name), // not implemented
         resolver.reserved(name),
         resolver.ruled(name),
+        resolver.github(name),
         resolver.default(name)
     ].find((filter) => filter);
 }
