@@ -21,7 +21,9 @@ export default class SeederPipe extends ModelPipe {
                     ___COLUMNS_BLOCK___: this.columnsBlock(model),
                 })
             }
-        })
+        }).concat([
+            /* Put the many to many here??? */
+        ])
     }
 
     databaseSeeder() {
