@@ -35,11 +35,29 @@ export default class FactoryPipe extends ModelPipe {
         let typeMap = {
             string: {
                 name: "$faker->name()",
+                ... { /* add more common names here */},
                 default: "$faker->sentence()"
             },
             timestamp: {
                 default: "Carbon::now()->format('Y-m-d H:i:s')"
-            }
+            },
+            tinyInteger: { default: "rand(10, 30)"},
+            integer: { default: "rand(10, 30)"},
+            smallInteger: { default: "rand(10, 30)"},
+            mediumInteger: { default: "rand(10, 30)"},
+            bigInteger: { default: "rand(10, 30)"},
+            unsignedInteger: { default: "rand(10, 30)"},
+            unsignedMediumInteger: { default: "rand(10, 30)"},
+            unsignedSmallInteger: { default: "rand(10, 30)"},
+            unsignedTinyInteger: { default: "rand(10, 30)"},
+            unsignedBigInteger: { default: "rand(10, 30)"},
+
+            text: { default: "$faker->realText()"},
+            longText: { default: "$faker->realText()"},
+            mediumText: { default: "$faker->realText()"},
+
+            boolean: { default: "(bool)random_int(0, 1)" },
+            
         }
 
         if (!(attribute.dataType in typeMap)) return "UNKNOWN_DATATYPE";
