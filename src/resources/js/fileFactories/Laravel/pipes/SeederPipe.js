@@ -49,15 +49,21 @@ export default class SeederPipe extends ModelPipe {
         }).join(___SINGLE_LINE_BREAK___)
     }
 
-    typeMap(dataType) {
-        return {
-            string: "$faker->sentence()",
-            timestamp: "Carbon::now()->format('Y-m-d H:i:s')"
-        }[dataType]
-    }
-
     seedStatement(attribute) {
-        return this.typeMap(attribute.dataType)
-    }
+        let typeMap = {
+            string: {
+                name: "$faker->name()",
+                default: "$faker->sentence()"
+            },
+            timestamp: {
+                default: "Carbon::now()->format('Y-m-d H:i:s')"
+            }
+        }
 
+        if (!attribute.dataType in typeMap) return "UNKNOWN_DATATYPE";
+        return attribute.name in map_[attribute.dataType] ? typeMap[attribute.dataType][name] :
+        
+        typeMap[attribute.dataType].default
+
+    }
 }

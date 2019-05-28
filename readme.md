@@ -34,3 +34,8 @@ It can be useful to set up a symlink from your sandbox to access it as if it whe
 ```
 ln -s ~/Code/skeleton/storage/skeleton/sandbox/test-project test-project
 ```
+
+```
+# get the latest release tag
+git tag --sort version:refname | tail -1
+```
