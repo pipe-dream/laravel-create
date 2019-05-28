@@ -52,7 +52,7 @@ class SkeletonAPIController extends BaseController
         $this->project->persistHistory();
 
         // Ensure migrations are autoloaded
-        exec('composer dumpautoload');
+        exec('cd .. && composer dumpautoload');
         // whats wrong with this package command??!!
         //Artisan::call('dump-autoload'); 
         
