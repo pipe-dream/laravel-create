@@ -52,6 +52,9 @@ class SkeletonAPIController extends BaseController
         // Save the changes we made
         $this->project->persistHistory();
 
+        // Ensure migrations are autoloaded
+        Artisan::call('dump-autoload');
+
         return response([
             "message" => "Successfully stored files!"
         ], 200);
