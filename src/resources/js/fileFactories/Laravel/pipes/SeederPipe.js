@@ -18,7 +18,6 @@ export default class SeederPipe extends ModelPipe {
                 path: "database/seeds/" + model.className() + "Seeder.php",
                 content: Template.for('Seeder').replace({
                     ___MODEL___: model.className(),
-                    ___COLUMNS_BLOCK___: this.columnsBlock(model),
                 })
             }
         }).concat([
@@ -39,31 +38,5 @@ export default class SeederPipe extends ModelPipe {
         return this.omc.inOptimalMigrationOrder().filter(entity => (entity instanceof ModelEntity)).map(model => {
             return "$this->call(" + model.className() + "Seeder::class);"
         }).join(___SINGLE_LINE_BREAK___)        
-    }
-
-    columnsBlock(model) {
-        return model.attributes.filter(attribute => {
-            return !['id', 'created_at', 'updated_at'].includes(attribute.name)
-        }).map(attribute => {
-            return F.singleQuotePad(attribute.name) + " => " + this.seedStatement(attribute)
-        }).join(___SINGLE_LINE_BREAK___)
-    }
-
-    seedStatement(attribute) {
-        let typeMap = {
-            string: {
-                name: "$faker->name()",
-                default: "$faker->sentence()"
-            },
-            timestamp: {
-                default: "Carbon::now()->format('Y-m-d H:i:s')"
-            }
-        }
-
-        if (!attribute.dataType in typeMap) return "UNKNOWN_DATATYPE";
-        return attribute.name in typeMap[attribute.dataType] ? typeMap[attribute.dataType][name] :
-        
-        typeMap[attribute.dataType].default
-
     }
 }
