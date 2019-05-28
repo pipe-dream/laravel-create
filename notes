@@ -1,45 +1,4 @@
-solved **************************************************
-string
-
-timestamp
-
-tinyInteger
-integer
-smallInteger
-mediumInteger
-bigInteger
-
-unsignedInteger
-unsignedMediumInteger
-unsignedSmallInteger
-unsignedTinyInteger
-unsignedBigInteger
-
-solvingNow **********************************************
-
 toBeSolved **********************************************
-binary
-
-char
-date
-decimal
-double
-enum
-float
-json
-jsonb
-lineString
-macAddress
-morphs
-multiLineString
-nullableTimestamps
-rememberToken
-set
-softDeletes
-softDeletesTz
-unsignedDecimal
-
-ignored for now ************************************************
 increments
 tinyIncrements
 smallIncrements
@@ -62,3 +21,18 @@ dateTimeTz
 nullableMorphs
 uuid
 year
+binary
+char
+date
+enum
+json
+jsonb
+lineString
+macAddress
+morphs
+multiLineString
+nullableTimestamps
+rememberToken
+set
+softDeletes
+softDeletesTz

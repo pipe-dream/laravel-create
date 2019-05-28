@@ -57,10 +57,61 @@ export default class FactoryPipe extends ModelPipe {
             mediumText: { default: "$faker->realText()"},
 
             boolean: { default: "(bool)random_int(0, 1)" },
-            
+
+            decimal: { default: "lcg_value()" },
+            double: { default: "lcg_value()" },
+            float: { default: "lcg_value()" },
+            unsignedDecimal: { default: "lcg_value()" },
+
+            /*
+            to be implemented **********************************************
+            */
+            ... [
+                'increments',
+                'tinyIncrements',
+                'smallIncrements',
+                'mediumIncrements',
+                'bigIncrements',
+                'point',
+                'polygon',
+                'geometry',
+                'multiPoint',
+                'multiPolygon',
+                'geometryCollection',
+                'time',
+                'timeTz',
+                'timestampTz',
+                'timestamps',
+                'timestampsTz',
+                'ipAddress',
+                'dateTime',
+                'dateTimeTz',
+                'nullableMorphs',
+                'uuid',
+                'year',
+                'binary',
+                'char',
+                'date',
+                'enum',
+                'json',
+                'jsonb',
+                'lineString',
+                'macAddress',
+                'morphs',
+                'multiLineString',
+                'nullableTimestamps',
+                'rememberToken',
+                'set',
+                'softDeletes',
+                'softDeletesTz',
+            ].reduce((carry, key) => {
+                carry[key] = { default: "DATATYPE_NOT_IMPLEMENTED_YET"}
+                return carry
+            }, {})
+               
         }
 
-        if (!(attribute.dataType in typeMap)) return "UNKNOWN_DATATYPE";
+        if (!(attribute.dataType in typeMap)) return "BAD_DATATYPE";
 
         if (attribute.name in typeMap[attribute.dataType]) {
             return typeMap[attribute.dataType][attribute.name]
