@@ -6,7 +6,6 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Storage;
 use File;
 use Ajthinking\Skeleton\ProjectFileManager;
 use Artisan;
@@ -53,10 +52,10 @@ class SkeletonAPIController extends BaseController
         $this->project->persistHistory();
 
         // Ensure migrations are autoloaded
-        Artisan::call('dump-autoload');
+        $exitCode = Artisan::call('dump-autoload');
 
         return response([
-            "message" => "Successfully stored files!"
+            "message" => "Successfully stored files! Exit code: " . $exitCode
         ], 200);
     }
 
