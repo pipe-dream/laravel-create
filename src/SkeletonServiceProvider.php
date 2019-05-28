@@ -4,6 +4,7 @@ namespace Ajthinking\Skeleton;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Collection;
+use Ajthinking\Skeleton\Commands\DumpAutoload;
 
 class SkeletonServiceProvider extends ServiceProvider
 {
@@ -14,7 +15,9 @@ class SkeletonServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->commands([
+            DumpAutoload::class
+        ]);
     }
 
     /**
