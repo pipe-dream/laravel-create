@@ -52,10 +52,14 @@ class SkeletonAPIController extends BaseController
         $this->project->persistHistory();
 
         // Ensure migrations are autoloaded
-        $exitCode = Artisan::call('dump-autoload');
+        exec('composer dumpautoload');
+        // whats wrong with this package command??!!
+        //Artisan::call('dump-autoload'); 
+        
+        
 
         return response([
-            "message" => "Successfully stored files! Exit code: " . $exitCode
+            "message" => "Successfully stored files!"
         ], 200);
     }
 

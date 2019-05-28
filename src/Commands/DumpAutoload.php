@@ -48,7 +48,10 @@ class DumpAutoload extends Command
      */
     public function handle()
     {
-        $this->composer->dumpAutoloads();
-        $this->composer->dumpOptimized();
+        dd(
+            $this->composer,
+            $this->composer->dumpAutoloads(),
+            $this->composer->dumpOptimized()
+        );
     }
 }
