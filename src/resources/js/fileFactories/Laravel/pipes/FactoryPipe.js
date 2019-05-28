@@ -31,16 +31,25 @@ export default class FactoryPipe extends ModelPipe {
         }).join(",\n")
     }
 
-    typeMap(dataType) {
-        return {
-            string: "$faker->sentence()",
-            timestamp: "Carbon::now()->format('Y-m-d H:i:s')",
-            unsignedInteger: "rand(1,10)"
-        }[dataType]
-    }
-
     seedStatement(attribute) {
-        return this.typeMap(attribute.dataType)
+        let typeMap = {
+            string: {
+                name: "$faker->name()",
+                default: "$faker->sentence()"
+            },
+            timestamp: {
+                default: "Carbon::now()->format('Y-m-d H:i:s')"
+            }
+        }
+
+        if (!(attribute.dataType in typeMap)) return "UNKNOWN_DATATYPE";
+
+        if (attribute.name in typeMap[attribute.dataType]) {
+            return typeMap[attribute.dataType][attribute.name]
+        }
+
+        return typeMap[attribute.dataType].default
+
     }
 
 }
