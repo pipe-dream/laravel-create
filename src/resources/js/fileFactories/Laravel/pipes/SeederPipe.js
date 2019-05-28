@@ -61,7 +61,7 @@ export default class SeederPipe extends ModelPipe {
         }
 
         if (!attribute.dataType in typeMap) return "UNKNOWN_DATATYPE";
-        return attribute.name in map_[attribute.dataType] ? typeMap[attribute.dataType][name] :
+        return attribute.name in typeMap[attribute.dataType] ? typeMap[attribute.dataType][name] :
         
         typeMap[attribute.dataType].default
 
