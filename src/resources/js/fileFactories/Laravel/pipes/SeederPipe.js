@@ -20,9 +20,13 @@ export default class SeederPipe extends ModelPipe {
                     ___MODEL___: model.className(),
                 })
             }
-        }).concat([
-            /* Put the many to many here??? */
-        ])
+        }).concat(
+            this.manyToManySeederFiles()
+        )
+    }
+
+    manyToManySeederFiles() {
+        return [] // not sure how to do this
     }
 
     databaseSeeder() {
