@@ -3,13 +3,15 @@
         <img v-if="!this.results.length" src="/vendor/ajthinking/skeleton/img/build.gif">
 
         <div class="flex flex-col mt-8 text-center" v-if="this.results.length">
-            <div class="mx-auto my-4 font-semibold p-4 bg-white text-blue text-xs border rounded border-blue shadow">
+            <div v-if="!isLoading" class="mx-auto my-4 font-semibold p-4 bg-white text-blue text-xs border rounded border-blue shadow">
                 Success! The following files were injected
             </div>            
-            <notification-card v-for="result in results" v-bind:key="result"
-                :type="'info'"
-                :message="result"
-            ></notification-card>       
+            <div v-if="!isLoading">
+                <notification-card v-for="result in results" v-bind:key="result"
+                    :type="'info'"
+                    :message="result"
+                ></notification-card>       
+            </div>
         </div>
 
         <button v-if="hasSomethingToBuild() && !isLoading" class="mt-4" @click="build()"
