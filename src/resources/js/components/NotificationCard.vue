@@ -19,7 +19,7 @@ export default {
 
         style() {
             let defaultStyle = "info"
-            let commonStyle = "flex p-1 items-start text-start rounded text-xs"
+            let commonStyle = "flex p-1 items-start text-start rounded text-xs border-b"
             return [
                 commonStyle,
                 this.styles()[this.type ? this.type : defaultStyle]
