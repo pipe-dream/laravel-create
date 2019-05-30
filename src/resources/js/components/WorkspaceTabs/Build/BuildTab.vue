@@ -12,9 +12,10 @@
             ></notification-card>       
         </div>
 
-        <button v-if="hasSomethingToBuild()" class="mt-4" @click="build()"
+        <button v-if="hasSomethingToBuild() && !isLoading" class="mt-4" @click="build()"
             :class="buttonStyle()"
         >{{buildLabel()}}</button>
+        <hint-box v-else-if="isLoading" message="Building ..."></hint-box>
         <hint-box v-else message="No files to build yet."></hint-box>        
     </div>  
 </template>
@@ -25,7 +26,8 @@
     export default {
         data() {
             return {
-                message: false
+                message: false,
+                isLoading: false
             }
         },
 
@@ -38,6 +40,7 @@
             build() {
 
                 (async () => {
+                    this.isLoading = true
                     const rawResponse = await fetch('/skeleton/api/build', {
                         method: 'POST',
                         headers: {
@@ -52,8 +55,10 @@
                             reverseHistory: Config.reverseHistory
                         })
                     });
+                    
                     const content = await rawResponse.json();
 
+                    this.isLoading = false
                     this.message = content.message
                     this.results = this.$store.state.reviewFiles.filter(file => {
                         return this.$store.state.selectedFiles[file.path]
