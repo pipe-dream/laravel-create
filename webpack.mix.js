@@ -19,9 +19,9 @@ mix.js('src/resources/js/app.js', 'src/public/js')
    .tailwind()
    .purgeCss();
 
-/* while developing make sure public/vendor/ajthinking/skeleton is fresh */
-mix.copy('src/public/css/app.css', '../../../public/vendor/ajthinking/skeleton/css/app.css')
-mix.copy('src/public/js/app.js', '../../../public/vendor/ajthinking/skeleton/js/app.js')
+/* while developing make sure public/vendor/pipe-dream/laravel is fresh */
+mix.copy('src/public/css/app.css', '../../../public/vendor/pipe-dream/laravel/css/app.css')
+mix.copy('src/public/js/app.js', '../../../public/vendor/pipe-dream/laravel/js/app.js')
 
 if (mix.inProduction()) {
   mix.version();

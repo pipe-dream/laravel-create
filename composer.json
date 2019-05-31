@@ -1,5 +1,5 @@
 {
-    "name": "ajthinking/skeleton",
+    "name": "pipe-dream/laravel",
     "type": "project",
     "description": "Watch how this package DESTROYS all other generators. Boilerplate repos HATE it!",
     "keywords": [
@@ -30,13 +30,13 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Ajthinking\\Skeleton\\SkeletonServiceProvider"
+                "PipeDream\\Laravel\\PipeDreamServiceProvider"
             ]
         }
     },
     "autoload": {
         "psr-4": {
-            "Ajthinking\\Skeleton\\": "src/"
+            "PipeDream\\Laravel\\": "src/"
         }
     },
     "autoload-dev": {

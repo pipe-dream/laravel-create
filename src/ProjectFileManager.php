@@ -1,6 +1,6 @@
 <?php
 
-namespace Ajthinking\Skeleton;
+namespace PipeDream\Laravel;
 
 use stdClass;
 use Storage;
@@ -51,7 +51,7 @@ class ProjectFileManager {
     public function persistHistory()
     {
         $this->storage()->put(
-            'skeleton-history.json',
+            'pipe-dream-history.json',
             json_encode($this->history)
         );
     }
@@ -59,29 +59,29 @@ class ProjectFileManager {
     /*********** PRIVATE ************************************************** */
     private function setupSandboxProject()
     {
-        app()['config']["filesystems.disks.skeleton_sandbox_project"] = [
+        app()['config']["filesystems.disks.pipe-dream-sandbox-project"] = [
             'driver' => 'local',
-            'root' => storage_path("skeleton/sandbox/test-project"),
+            'root' => storage_path("pipe-dream/sandbox/test-project"),
         ]; 
         
-        if(!Storage::disk('skeleton')->exists('sandbox/test-project')) {
+        if(!Storage::disk('pipe-dream')->exists('sandbox/test-project')) {
             File::copyDirectory(
-                storage_path('skeleton/laravel-including-vendors'),
-                storage_path("skeleton/sandbox/test-project")
+                storage_path('pipe-dream/laravel-including-vendors'),
+                storage_path("pipe-dream/sandbox/test-project")
             );
         }
     }
 
     private function loadHistory()
     {
-        return $this->storage()->has('skeleton-history.json') ?
-        json_decode($this->storage()->get('skeleton-history.json')) : [];
+        return $this->storage()->has('pipe-dream-history.json') ?
+        json_decode($this->storage()->get('pipe-dream-history.json')) : [];
     }
 
     private function storage()
     {
         return Storage::disk(
-            $this->isSandboxed ? "skeleton_sandbox_project" : 'self'
+            $this->isSandboxed ? "pipe-dream-sandbox-project" : 'self'
         );
     }
 

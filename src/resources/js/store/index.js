@@ -150,7 +150,7 @@ export default new Vuex.Store({
         },
 
         setTemplates(context) {
-            fetch('/skeleton/api/templates').then(result => result.json()).then(templates => 
+            fetch('/pipe-dream/api/templates').then(result => result.json()).then(templates => 
                 context.commit('setTemplates', templates)
             )            
         },        

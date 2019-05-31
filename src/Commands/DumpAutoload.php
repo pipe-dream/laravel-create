@@ -1,6 +1,6 @@
 <?php
 
-namespace Ajthinking\Skeleton\Commands;
+namespace PipeDream\Laravel\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Composer;
