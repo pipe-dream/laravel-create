@@ -1,6 +1,6 @@
 <?php 
 
-Route::get('/pipe-dream', '\PipeDream\Laravel\Controllers\PWebController@index');
+Route::get('/pipe-dream', '\PipeDream\Laravel\Controllers\PipeDreamWebController@index');
 Route::get('/pipe-dream/test', function() {
     return \Artisan::call('dump-autoload');
 });
