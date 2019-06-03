@@ -19,13 +19,14 @@ Thats it, now open your browser and go to `/pipe-dream` and start designing.
 
 ## Usage
 List your models and tables in the sketch window. Note the schema automatically created to the right.
-<img src="src/public/img/screenshots/design.png" />
+
+<kbd><img src="src/public/img/screenshots/design.png" /></kbd>
 
  Review the files to be created.
-<img src="src/public/img/screenshots/review.png" />
+<kbd><img src="src/public/img/screenshots/review.png" /></kbd>
 
  Commit the files to disc.
-<img src="src/public/img/screenshots/build.png" />
+<kbd><img src="src/public/img/screenshots/build.png" /></kbd>
 
 If you havent already, watch the 2 minute video [here](https://www.youtube.com/watch?v=doUlmZdvP1o).
 
