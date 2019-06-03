@@ -18,9 +18,16 @@ composer require --dev pipe-dream/laravel
 Thats it, now open your browser and go to `/pipe-dream` and start designing.
 
 ## Usage
-If you havent already, watch the 2 minute video [here](www.google.com).
+List your models and tables in the sketch window. Note the schema automatically created to the right.
+<img src="src/public/img/screenshots/design.png" />
 
-list your models and tables in the sketch window and see what happens :)
+ Review the files to be created.
+<img src="src/public/img/screenshots/review.png" />
+
+ Commit the files to disc.
+<img src="src/public/img/screenshots/build.png" />
+
+If you havent already, watch the 2 minute video [here](https://www.youtube.com/watch?v=doUlmZdvP1o).
 
 ## Contributing
 Please post issues and send PRs.
