@@ -33,6 +33,10 @@ If you havent already, watch the 2 minute video [here](https://www.youtube.com/w
 
 <kbd><img src="src/public/img/screenshots/build.png" /></kbd>
 
+* You are now ready to migrate and seed. Check out the API with placeholder values at `/api`
+
+<kbd><img src="src/public/img/screenshots/api.png" /></kbd>
+
 ## Alfa disclaimer
 This package is still in development. Please post issues and send PRs.
 
