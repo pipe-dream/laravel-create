@@ -10,10 +10,6 @@ Create new web projects really fast. By  giving Pipe Dream a minimum of input in
 <img src="src/public/img/video_splash_joke.png" width="600" />
 </a>
 
-At the moment its only available as a Laravel package (PHP), but the plan is to make implementations for other languages/frameworks maybe Express/Rails/Django.
-
-
-
 ## Installation
 
 ```bash
