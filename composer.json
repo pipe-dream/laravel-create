@@ -1,6 +1,6 @@
 {
     "name": "pipe-dream/laravel",
-    "type": "project",
+    "type": "package",
     "description": "Watch how this package DESTROYS all other generators. Boilerplate repos HATE it!",
     "keywords": [
         "laravel",
