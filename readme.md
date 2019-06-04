@@ -25,6 +25,35 @@ If you havent already, watch the 2 minute video [here](https://www.youtube.com/w
 
 <kbd><img src="src/public/img/screenshots/design.png" /></kbd>
 
+* Here are some pointers on the sketch syntax
+```js
+// use PascalCase for models
+Garage
+location
+capacity
+
+// Separate your entities into chunks
+Car
+color
+user_id // foreign key
+
+// use snake_case model1_model2 to setup a ManyToMany relationship
+car_garage 
+
+// use button to add a default user system
+User 
+name
+email
+email_verified_at
+password
+remember_token
+
+// use snake_case to create a table
+password_resets
+email
+token
+```
+
  * Review the files to be created.
 
 <kbd><img src="src/public/img/screenshots/review.png" /></kbd>
@@ -38,7 +67,7 @@ If you havent already, watch the 2 minute video [here](https://www.youtube.com/w
 <kbd><img src="src/public/img/screenshots/api.png" width="400" /></kbd>
 
 ## Alfa disclaimer
-This package is still in development. Please post issues and send PRs.
+This package is still very much in development. Please post issues and send PRs.
 
 ## License
 MIT
