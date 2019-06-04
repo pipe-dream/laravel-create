@@ -6,12 +6,11 @@
 
 Create new web projects really fast. By  giving Pipe Dream a minimum of input in form of a sketch/entity list it will predict your application schema and feed it into a set of pipes. These pipes will generate all the files needed to get started really quick.
 
-At the moment its only available as a Laravel package (PHP), but the plan is to make implementations for other languages/frameworks maybe Express/Rails/Django.
-
 <a href="https://www.youtube.com/watch?v=doUlmZdvP1o" target="_blank">
-<img src="src/public/img/video_splash_joke.png" title="source: imgur.com" />
+<img src="src/public/img/video_splash_joke.png" width="600" />
 </a>
 
+At the moment its only available as a Laravel package (PHP), but the plan is to make implementations for other languages/frameworks maybe Express/Rails/Django.
 
 
 
