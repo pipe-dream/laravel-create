@@ -116,7 +116,7 @@ export default class ObjectModelCollection {
                         {
                             name: F.snakeCase(modelName) + "_id",
                             parent: entity,
-                            dataType: "unsignedInteger",
+                            dataType: "unsignedBigInteger",
                             fillable: false,
                             hidden: false,
                             nullable: false,

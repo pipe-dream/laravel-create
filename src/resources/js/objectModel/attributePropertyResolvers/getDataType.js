@@ -58,7 +58,7 @@ class DataTypeResolver {
         return {
             // One to Many explicit
             "_id$": function(name) {
-                return "unsignedInteger"
+                return "unsignedBigInteger"
             },            
             // Time columns
             "(time|date|_at)$": function(name) {
