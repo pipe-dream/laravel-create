@@ -1,7 +1,7 @@
 
-[![Latest Stable Version](https://img.shields.io/packagist/v/ajthinking/tinx.svg)](https://packagist.org/packages/ajthinking/tinx)
-[![Total Downloads](https://img.shields.io/packagist/dt/ajthinking/tinx.svg)](https://packagist.org/packages/ajthinking/tinx)
-[![License](https://img.shields.io/packagist/l/ajthinking/tinx.svg)](https://packagist.org/packages/ajthinking/tinx)
+[![Latest Stable Version](https://img.shields.io/packagist/v/pipe-dream/laravel.svg)](https://packagist.org/packages/pipe-dream/laravel)
+[![Total Downloads](https://img.shields.io/packagist/dt/pipe-dream/laravel.svg)](https://packagist.org/packages/pipe-dream/laravel)
+[![License](https://img.shields.io/packagist/l/pipe-dream/laravel.svg)](https://packagist.org/packages/pipe-dream/laravel)
 
 
 
