@@ -5,7 +5,7 @@
 
 
 
-<a href="https://www.youtube.com/watch?v=doUlmZdvP1o">
+<a href="https://www.youtube.com/watch?v=doUlmZdvP1o" target="_blank">
 <img src="src/public/img/video_splash_joke.png" title="source: imgur.com" />
 </a>
 Pipe Dream lets you build web applications from minimal input. By using a concept of a sketch, an application schema is generated and feed through a set of pipes to create all the files needed.
