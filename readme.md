@@ -35,7 +35,7 @@ If you havent already, watch the 2 minute video [here](https://www.youtube.com/w
 
 * You are now ready to migrate and seed. Check out the API with placeholder values at `/api`
 
-<kbd><img src="src/public/img/screenshots/api.png" /></kbd>
+<kbd><img src="src/public/img/screenshots/api.png" width="400" /></kbd>
 
 ## Alfa disclaimer
 This package is still in development. Please post issues and send PRs.
