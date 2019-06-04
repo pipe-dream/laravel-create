@@ -8,7 +8,9 @@
 <a href="https://www.youtube.com/watch?v=doUlmZdvP1o" target="_blank">
 <img src="src/public/img/video_splash_joke.png" title="source: imgur.com" />
 </a>
-Pipe Dream lets you build web applications from minimal input. By using a concept of a sketch, an application schema is generated and feed through a set of pipes to create all the files needed.
+Pipe Dream is a handy tool used to create new web projects really fast. By  giving it a minimum of input in form of a sketch/entity list it will predict your application schema and feed it into a set of pipes. These pipes will generate all the files needed to get started really quick.
+
+At the moment its only available as a Laravel package (PHP), but the plan is to make implementations for other languages/frameworks maybe Express/Rails/Django.
 
 ## Installation
 
