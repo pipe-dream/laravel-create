@@ -4,8 +4,7 @@
 [![License](https://img.shields.io/packagist/l/pipe-dream/laravel.svg)](https://packagist.org/packages/pipe-dream/laravel)
 
 
-Create new web projects 
-ly fast. By  giving Pipe Dream a minimum of input in form of a sketch/entity list it will predict your application schema and feed it into a set of pipes. These pipes will generate all the files needed to get started really quick.
+Create new web projects really fast. By  giving Pipe Dream a minimum of input in form of a sketch/entity list it will predict your application schema and feed it into a set of pipes. These pipes will generate all the files needed to get started really quick.
 
 <a href="https://www.youtube.com/watch?v=doUlmZdvP1o" target="_blank">
 <img src="src/public/img/video_splash_joke.png" width="600" />
@@ -63,7 +62,7 @@ token
 
 <kbd><img src="src/public/img/screenshots/build.png" /></kbd>
 
-* You are now ready to migrate and seed. Go aheadd and check out the API (at `/api`), that contains placeholder values 
+* You are now ready to migrate and seed. Go ahead and check out the API (at `/api`), that contains placeholder values 
 
 <kbd><img src="src/public/img/screenshots/api.png" width="400" /></kbd>
 
