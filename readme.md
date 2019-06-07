@@ -71,3 +71,6 @@ This package is still very much in development. Please post issues and send PRs.
 
 ## License
 MIT
+
+## Stay tuned!
+Follow me on twitter: [@ajthinking](https://twitter.com/ajthinking)
