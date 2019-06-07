@@ -4,7 +4,8 @@
 [![License](https://img.shields.io/packagist/l/pipe-dream/laravel.svg)](https://packagist.org/packages/pipe-dream/laravel)
 
 
-Create new web projects really fast. By  giving Pipe Dream a minimum of input in form of a sketch/entity list it will predict your application schema and feed it into a set of pipes. These pipes will generate all the files needed to get started really quick.
+Create new web projects 
+ly fast. By  giving Pipe Dream a minimum of input in form of a sketch/entity list it will predict your application schema and feed it into a set of pipes. These pipes will generate all the files needed to get started really quick.
 
 <a href="https://www.youtube.com/watch?v=doUlmZdvP1o" target="_blank">
 <img src="src/public/img/video_splash_joke.png" width="600" />
@@ -19,9 +20,9 @@ composer require --dev pipe-dream/laravel
 Thats it, now open your browser and go to `/pipe-dream` and start designing.
 
 ## Usage
-If you havent already, watch the 2 minute video [here](https://www.youtube.com/watch?v=doUlmZdvP1o).
+If you havent already, [watch the 2 minute video](https://www.youtube.com/watch?v=doUlmZdvP1o).
 
-* List your models and tables in the sketch window. Note the schema automatically created to the right.
+* List your models and tables in the sketch window. Note the schema is created in real-time and is being displayed on the right side of the screen.
 
 <kbd><img src="src/public/img/screenshots/design.png" /></kbd>
 
@@ -54,19 +55,19 @@ email
 token
 ```
 
- * Review the files to be created.
+ * Review the list of files that are going to be created.
 
 <kbd><img src="src/public/img/screenshots/review.png" /></kbd>
 
-* Commit the files to disc.
+* Commit the files to disk.
 
 <kbd><img src="src/public/img/screenshots/build.png" /></kbd>
 
-* You are now ready to migrate and seed. Check out the API with placeholder values at `/api`
+* You are now ready to migrate and seed. Go aheadd and check out the API (at `/api`), that contains placeholder values 
 
 <kbd><img src="src/public/img/screenshots/api.png" width="400" /></kbd>
 
-## Alfa disclaimer
+## Alpha disclaimer
 This package is still very much in development. Please post issues and send PRs.
 
 ## License
