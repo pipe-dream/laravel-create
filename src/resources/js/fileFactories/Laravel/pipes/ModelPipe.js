@@ -47,6 +47,17 @@ export default class ModelPipe extends BasePipe {
     
     relationshipMethods(model) {
         return [
+            model.relationships.hasOne.map(target => {
+                return Template.for('HasOneRelationship').replace({
+                    ___TARGET_CLASS___: target.className(),                    
+                    ___THIS_CLASS___: model.className(),
+                    ___METHOD_NAME___: F.camelCase(
+                        target.className()
+                    ),
+
+                })
+            }).join(___DOUBLE_LINE_BREAK___),
+
             model.relationships.hasMany.map(target => {
                 return Template.for('HasManyRelationship').replace({
                     ___TARGET_CLASS___: target.className(),                    
