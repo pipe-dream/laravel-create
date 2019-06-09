@@ -3,7 +3,6 @@
 namespace PipeDream\Laravel;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Collection;
 use PipeDream\Laravel\Commands\DumpAutoload;
 
 class PipeDreamServiceProvider extends ServiceProvider
@@ -16,7 +15,7 @@ class PipeDreamServiceProvider extends ServiceProvider
     public function register()
     {
         $this->commands([
-            DumpAutoload::class
+            DumpAutoload::class,
         ]);
     }
 
@@ -38,33 +37,34 @@ class PipeDreamServiceProvider extends ServiceProvider
     * So resorting to do it every new page load
     * Please fix this
     */
-    public static function publishAssets() {
+    public static function publishAssets()
+    {
         \File::copyDirectory(
-            __DIR__ . '/public',
+            __DIR__.'/public',
             public_path('vendor/pipe-dream/laravel')
         );
 
         \File::copy(
-            __DIR__ . '/../data/dataTypeGithubDump.js',
+            __DIR__.'/../data/dataTypeGithubDump.js',
             public_path('vendor/pipe-dream/laravel/data/github.js')
-        );        
+        );
     }
-    
+
     private function registerStorages()
     {
-        $this->app['config']["filesystems.disks.self"] = [
+        $this->app['config']['filesystems.disks.self'] = [
             'driver' => 'local',
-            'root' => base_path(),
+            'root'   => base_path(),
         ];
 
-        $this->app['config']["filesystems.disks.pipe-dream"] = [
+        $this->app['config']['filesystems.disks.pipe-dream'] = [
             'driver' => 'local',
-            'root' => storage_path('pipe-dream'),
+            'root'   => storage_path('pipe-dream'),
         ];
-        
-        $this->app['config']["filesystems.disks.pipe-dream.sandbox"] = [
+
+        $this->app['config']['filesystems.disks.pipe-dream.sandbox'] = [
             'driver' => 'local',
-            'root' => storage_path('pipe-dream/sandbox'),
-        ];        
+            'root'   => storage_path('pipe-dream/sandbox'),
+        ];
     }
 }
