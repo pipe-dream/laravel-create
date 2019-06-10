@@ -7,4 +7,4 @@ assignees: ''
 
 ---
 
-Thank you, we love to hear your ideas. You might want to read the [Development Roadmap](#Development-Roadmap) to get an overview of where we are going.
+Thank you, we love to hear your ideas. If you haven't already you might want to read the Development Roadmap in the readme to get an overview of where we are going.
