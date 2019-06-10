@@ -84,6 +84,7 @@ This package is still very much in development. Below is a rough plan for the fu
 
 ### Help us out
 Help us out by simple trying this package. Feel free to post issues if you have a question, find a bug, have some idea for improvement or if you just want to share your experience. PRs are more than welcome, you dont need to be a pro.
+Here is a [Trello board](https://trello.com/b/R11mhfdy/pipe-dream) with all the stuff that needs to be done.
 
 ## License
 MIT
