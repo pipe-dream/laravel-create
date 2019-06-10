@@ -24,5 +24,14 @@ class ___CLASS_NAME___ extends Model
         ___HIDDEN___
     ];
 
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        ___CASTS_BLOCK___
+    ];    
+
     ___RELATIONSHIP_METHODS_BLOCK___
 }

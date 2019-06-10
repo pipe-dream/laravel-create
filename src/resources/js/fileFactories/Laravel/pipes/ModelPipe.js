@@ -11,7 +11,7 @@ export default class ModelPipe extends BasePipe {
                     ___CLASS_NAME___: this.className(model),
                     ___HIDDEN___: this.hiddenAttributes(model),
                     ___FILLABLE___: this.fillableAttributes(model),
-                    ___CASTS_BLOCK___: this.casts(model),
+                    ___CASTS_BLOCK___: this.casts(model) ? this.casts(model) : "//",
                     ___RELATIONSHIP_METHODS_BLOCK___: this.relationshipMethods(model),                
                 })
             }
