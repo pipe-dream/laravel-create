@@ -77,7 +77,7 @@ This package is still very much in development. Below is a rough plan for the fu
 
 ### Beta ( v0.1.0 )
 * Most of the Javascript will be extracted to its own repository ( pipe-dream/core ) in order to easily enable support for multiple FileFactories in separate repos (Maybe ExpressFileFactory, DjangoFileFactory or others). This repo (pipe-dream/laravel) will then extend that core with logic, rules, data etc specific only for Laravel.
-* Backend and frontend interfaces/API specifications is supplied to make it clear what other implementations need to conform to.
+* Backend and frontend interfaces/API specifications are supplied to make it clear what other implementations need to conform to.
 
 ### Version 1 ( v1.0.0 )
 * When the beta is stable we will bump it up to v1.0.0
