@@ -12,10 +12,10 @@ class PipeDreamWebController extends BaseController
         PipeDreamServiceProvider::publishAssets();
 
         return view('pipe-dream::spa')->with([
-            "settings" => [
-                "isSandboxed" => env('PIPEDREAM_IS_SANDBOXED', false),
-                "appName" => request()->path() 
-            ]
-        ]);        
+            'settings' => [
+                'isSandboxed' => env('PIPEDREAM_IS_SANDBOXED', false),
+                'appName'     => request()->path(),
+            ],
+        ]);
     }
 }
