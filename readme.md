@@ -83,7 +83,7 @@ This package is still very much in development. Below is a rough plan for the fu
 * When the beta is stable we will bump it up to v1.0.0
 
 ### Help us out
-Help us out by simple trying this package. Feel free to post issues if you have a question, find a bug, have some idea for improvement or if you just want to share your experience. PRs are more than welcome, you dont need to be a pro.
+Help us out by simply trying this package. Feel free to post issues if you have a question, find a bug, have some idea for improvement or if you just want to share your experience. PRs are more than welcome, you dont need to be a pro.
 Start by looking at this [Trello board](https://trello.com/b/R11mhfdy/pipe-dream) listing all the stuff that needs to get done.
 
 ## License
