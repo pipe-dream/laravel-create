@@ -34,6 +34,6 @@ class ___MODEL___APIController extends Controller
         $___MODEL_INSTANCE___ = ___MODEL___::findOrFail($id);
         $___MODEL_INSTANCE___->delete();
 
-        return 204;
+        return response()->json([], \Illuminate\Http\Response::HTTP_NO_CONTENT);
     }
 }
