@@ -35,33 +35,41 @@ export default class FactoryPipe extends ModelPipe {
         let typeMap = {
             string: {
                 name: "$faker->name()",
+                first_name: "$faker->firstName",
+                last_name: "$faker->lastName",
+                slug: "$faker->slug",
+                title: "$faker->words(3, true)",
+                email: "$faker->unique()->safeEmail",
+                password: "$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi", // password
+                remember_token: "Str::random(10)",
                 ... { /* add more common names here */},
                 default: "$faker->sentence()"
             },
             timestamp: {
-                default: "Carbon::now()->format('Y-m-d H:i:s')"
+                email_verified_at: "now()",
+                default: "$faker->dateTimeBetween('-30 years', 'now')"
             },
-            tinyInteger: { default: "rand(1, 10)"},
-            integer: { default: "rand(1, 10)"},
-            smallInteger: { default: "rand(1, 10)"},
-            mediumInteger: { default: "rand(1, 10)"},
-            bigInteger: { default: "rand(1, 10)"},
-            unsignedInteger: { default: "rand(1, 10)"},
-            unsignedMediumInteger: { default: "rand(1, 10)"},
-            unsignedSmallInteger: { default: "rand(1, 10)"},
-            unsignedTinyInteger: { default: "rand(1, 10)"},
-            unsignedBigInteger: { default: "rand(1, 10)"},
+            tinyInteger: { default: "random_int(-128, 127)"},
+            smallInteger: { default: "random_int(-32768, 32767)"},
+            mediumInteger: { default: "random_int(-8388608, 8388607)"},
+            integer: { default: "random_int(-2147483648, 2147483647)"},
+            bigInteger: { default: "random_int(-9223372036854775808, 9223372036854775807)"},
+            unsignedTinyInteger: { default: "random_int(0, 255)"},
+            unsignedSmallInteger: { default: "random_int(0, 65535)"},
+            unsignedMediumInteger: { default: "random_int(0, 16777215)"},
+            unsignedInteger: { default: "random_int(0, 4294967295)"},
+            unsignedBigInteger: { default: "random_int(0, 18446744073709551615)"},
 
             text: { default: "$faker->realText()"},
             longText: { default: "$faker->realText()"},
             mediumText: { default: "$faker->realText()"},
 
-            boolean: { default: "(bool)random_int(0, 1)" },
+            boolean: { default: "$faker->boolean()" },
 
-            decimal: { default: "lcg_value()" },
-            double: { default: "lcg_value()" },
-            float: { default: "lcg_value()" },
-            unsignedDecimal: { default: "lcg_value()" },
+            decimal: { default: "$faker->randomFloat()" },
+            double: { default: "$faker->randomFloat()" },
+            float: { default: "$faker->randomFloat()" },
+            unsignedDecimal: { default: "$faker->randomFloat()" },
 
             /*
             to be implemented **********************************************
@@ -108,7 +116,11 @@ export default class FactoryPipe extends ModelPipe {
                 carry[key] = { default: "DATATYPE_NOT_IMPLEMENTED_YET"}
                 return carry
             }, {})
-               
+        }
+
+        /* The seeds assumes related models are available with ID in range [1,10] */
+        if (attribute.foreign) {
+             return "random_int(1, 10)";
         }
 
         if (!(attribute.dataType in typeMap)) return "BAD_DATATYPE";
