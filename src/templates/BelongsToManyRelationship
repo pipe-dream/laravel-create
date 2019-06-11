@@ -3,5 +3,5 @@
  */
 public function ___METHOD_NAME___()
 {
-    return $this->belongsToMany('App\___TARGET_CLASS___');
+    return $this->belongsToMany(\App\___TARGET_CLASS___::class);
 }
