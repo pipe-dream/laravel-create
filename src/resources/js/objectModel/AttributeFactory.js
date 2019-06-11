@@ -83,7 +83,11 @@ export default class AttributeFactory {
     }
 
     getNullable() {
-        return this.getForeign() ? true : false
+        if (this.getForeign() || ['created_at', 'updated_at'].includes(this.name)){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     /* ATTRIBUTE PREFERENCES ***************************************************************/
