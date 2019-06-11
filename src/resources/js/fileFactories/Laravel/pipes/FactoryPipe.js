@@ -116,7 +116,11 @@ export default class FactoryPipe extends ModelPipe {
                 carry[key] = { default: "DATATYPE_NOT_IMPLEMENTED_YET"}
                 return carry
             }, {})
-               
+        }
+
+        /* The seeds assumes related models are available with ID in range [1,10] */
+        if (attribute.foreign) {
+             return "random_int(1, 10)";
         }
 
         if (!(attribute.dataType in typeMap)) return "BAD_DATATYPE";
