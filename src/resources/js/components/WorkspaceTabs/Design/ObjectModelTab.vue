@@ -50,11 +50,13 @@
         computed: {
             sketch: {
                 get() {
+                    if (localStorage.sketch) {this.$store.state.sketch=localStorage.sketch}
                     return this.$store.state.sketch            
                 },
 
                 set(value) {
                     this.$store.dispatch('setSketch', value)
+                    localStorage.sketch = value;
                 }
             },
 
