@@ -125,6 +125,11 @@ export default class FactoryPipe extends ModelPipe {
             return typeMap[attribute.dataType][attribute.name]
         }
 
+        /* The seeds assums related models are available with ID in range [1,10] */
+        if(attribute.foreign) {
+            return "random_int(1, 10)"
+        }
+
         return typeMap[attribute.dataType].default
 
     }
