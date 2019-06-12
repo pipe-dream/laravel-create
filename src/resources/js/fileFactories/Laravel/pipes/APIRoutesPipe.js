@@ -1,6 +1,6 @@
-import Template from '@utilities/Template'
+import Template from '../../../utilities/Template'
 import BasePipe from './BasePipe'
-import F from '@utilities/Formatter.js'
+import F from '../../../utilities/Formatter.js'
 
 export default class APIRoutesPipe extends BasePipe {
     calculateFiles() {        

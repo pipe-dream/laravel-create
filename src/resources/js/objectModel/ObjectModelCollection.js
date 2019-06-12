@@ -1,4 +1,4 @@
-import F from '@utilities/Formatter'
+import F from '../utilities/Formatter'
 import Attribute from './Attribute'
 import ObjectModelEntityFactory from './ObjectModelEntityFactory'
 import collect from 'collect.js'
