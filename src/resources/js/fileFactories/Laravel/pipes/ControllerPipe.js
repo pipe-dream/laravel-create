@@ -9,6 +9,8 @@ export default class ControllerPipe extends ModelPipe {
                 content: Template.for('Controller').replace({
                     ___HIDDEN___: this.hiddenAttributes(model),
                     ___MODEL___: this.className(model),
+                    ___MODEL_INSTANCE___: F.camelCase(model.className()),
+                    ___WITH_RELATIONSHIPS___: this.withRelationships(model),
                     ___FILLABLE___: this.fillableAttributes(model),
                     ___CASTS___: this.casts(model),
                     ___RELATIONSHIP_METHODS_BLOCK___: this.relationshipMethods(model),
