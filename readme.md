@@ -92,4 +92,4 @@ MIT
 ## Stay tuned!
 Follow me on twitter: [@ajthinking](https://twitter.com/ajthinking)
 
-<a href="https://www.patreon.com/bePatron?u=13918426" >Help me continue this work | Patreon</a>
+<a href="https://www.patreon.com/ajthinking" >Help me continue this work | Patreon</a>
