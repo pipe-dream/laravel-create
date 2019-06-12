@@ -32,5 +32,12 @@
         "vue-highlightjs": "^1.3.3",
         "vue-textarea-autosize": "^1.0.4",
         "vuex": "^3.1.0"
+    },
+    "_moduleAliases": {
+        "@utilities": "src/resources/js/utilities",
+        "@pipes": "src/resources/js/fileFactories/Laravel/pipes",
+        "@preferences": "src/resources/js/fileFactories/Laravel/preferences",
+        "@sketches": "src/resources/js/fileFactories/Laravel/sketches",
+        "@entities": "src/resources/js/objectModel/entities"
     }
 }

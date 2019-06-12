@@ -1,7 +1,7 @@
-import UserEntity from './entities/UserEntity'
-import ModelEntity from './entities/ModelEntity'
-import TableEntity from './entities/TableEntity'
-import PivotTableEntity from './entities/PivotTableEntity'
+import UserEntity from '@entities/UserEntity'
+import ModelEntity from '@entities/ModelEntity'
+import TableEntity from '@entities/TableEntity'
+import PivotTableEntity from '@entities/PivotTableEntity'
 const EntityTypes = { UserEntity, ModelEntity, TableEntity, PivotTableEntity};
 
 
