@@ -2,13 +2,13 @@
 
 namespace PipeDream\Laravel\Controllers;
 
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Routing\Controller as BaseController;
-use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use File;
-use PipeDream\Laravel\ProjectFileManager;
 use Artisan;
+use File;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Routing\Controller as BaseController;
+use PipeDream\Laravel\ProjectFileManager;
 
 class PipeDreamAPIController extends BaseController
 {
@@ -21,17 +21,16 @@ class PipeDreamAPIController extends BaseController
 
     public function templates()
     {
-        
         return $this->getTemplates();
     }
 
     public function scripts()
     {
         return [
-            "migrate",
-            "seed"
+            'migrate',
+            'seed',
         ];
-    }   
+    }
 
     public function build()
     {
@@ -40,7 +39,7 @@ class PipeDreamAPIController extends BaseController
 
         // Optionally reverse the previous design iteration
         // This is useful to remove previous mistakes and timestamp conflicts
-        $this->args->reverseHistory? $this->project->reverseHistory() : null;
+        $this->args->reverseHistory ? $this->project->reverseHistory() : null;
 
         // Write the files generated
         $this->project->write($this->args->reviewFiles);
@@ -54,12 +53,10 @@ class PipeDreamAPIController extends BaseController
         // Ensure migrations are autoloaded
         exec('cd .. && composer dumpautoload');
         // whats wrong with this package command??!!
-        //Artisan::call('dump-autoload'); 
-        
-        
+        //Artisan::call('dump-autoload');
 
         return response([
-            "message" => "Successfully stored files!"
+            'message' => 'Successfully stored files!',
         ], 200);
     }
 
@@ -70,7 +67,8 @@ class PipeDreamAPIController extends BaseController
         );
     }
 
-    private function deleteDefaultMigrations() {
+    private function deleteDefaultMigrations()
+    {
         $this->project->delete(json_decode('
             [
                 {
@@ -82,7 +80,7 @@ class PipeDreamAPIController extends BaseController
             ]
         '));
     }
-    
+
     private function pathToFileName($path)
     {
         return substr($path, strrpos($path, '/') + 1);
@@ -90,8 +88,9 @@ class PipeDreamAPIController extends BaseController
 
     private function getTemplates()
     {
-        return collect(glob(__DIR__ . '/../templates/*'))->reduce(function($allFiles, $path) {
+        return collect(glob(__DIR__.'/../templates/*'))->reduce(function ($allFiles, $path) {
             $allFiles[$this->pathToFileName($path)] = File::get($path);
+
             return $allFiles;
         }, collect([]));
     }
