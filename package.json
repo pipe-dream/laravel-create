@@ -38,6 +38,7 @@
         "@pipes": "src/resources/js/fileFactories/Laravel/pipes",
         "@preferences": "src/resources/js/fileFactories/Laravel/preferences",
         "@sketches": "src/resources/js/fileFactories/Laravel/sketches",
-        "@entities": "src/resources/js/objectModel/entities"
+        "@entities": "src/resources/js/objectModel/entities",
+        "@": "src/resources/js"
     }
 }

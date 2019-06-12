@@ -1,4 +1,4 @@
-import Config from '../Config'
+import Config from '@/Config'
 const mergeJSON = require('deepmerge')
 import store from '../store'
 
