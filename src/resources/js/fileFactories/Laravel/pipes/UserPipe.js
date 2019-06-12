@@ -1,4 +1,4 @@
-import Template from '../../../utilities/Template'
+import Template from '@utilities/Template'
 import ModelPipe from './ModelPipe';
 
 export default class UserPipe extends ModelPipe {

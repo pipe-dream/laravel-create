@@ -1,8 +1,8 @@
-import Template from '../../../utilities/Template'
+import Template from '@utilities/Template'
 import ModelPipe from './ModelPipe'
-import ModelEntity from '../../../objectModel/entities/ModelEntity'
+import ModelEntity from '@entities/ModelEntity'
 
-import F from '../../../utilities/Formatter'
+import F from '@utilities/Formatter'
 
 export default class SeederPipe extends ModelPipe {
     calculateFiles(omc = ObjectModelCollection) {
