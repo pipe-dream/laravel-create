@@ -1,5 +1,6 @@
 import Template from '../../../utilities/Template'
 import ModelPipe from './ModelPipe';
+import F from '../../../utilities/Formatter'
 
 export default class ControllerPipe extends ModelPipe {
     calculateFiles(omc = ObjectModelCollection) {
@@ -18,4 +19,20 @@ export default class ControllerPipe extends ModelPipe {
             }
         })
     }
+
+    withRelationships(model) {
+        return "with([" + [
+            ... model.relationships.hasMany.map(target => {
+                return F.singleQuotePad(F.camelCase(F.pluralize(target.name)))
+            }),
+
+            ... model.relationships.belongsTo.map(target => {
+                return F.singleQuotePad(F.camelCase(target.name))
+            }),
+            
+            ... model.relationships.belongsToMany.map(target => {
+                return F.singleQuotePad(F.camelCase(F.pluralize(target.name)))
+            }),
+        ].join(", ") + "])->"
+    }    
 }
