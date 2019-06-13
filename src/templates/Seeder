@@ -1,0 +1,17 @@
+<?php
+
+use App\___MODEL___;
+use Illuminate\Database\Seeder;
+
+class ___MODEL___Seeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        factory(___MODEL___::class, 10)->create();
+    }
+}

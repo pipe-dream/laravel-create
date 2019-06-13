@@ -1,0 +1,49 @@
+{
+    "name": "pipe-dream/laravel",
+    "type": "package",
+    "description": "Watch how this package DESTROYS all other generators. Boilerplate repos HATE it!",
+    "keywords": [
+        "laravel",
+        "package"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^7.1.3"
+    },
+    "require-dev": {
+                
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "PipeDream\\Laravel\\PipeDreamServiceProvider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "PipeDream\\Laravel\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php ../../../artisan package:discover --ansi"
+        ],
+        "post-update-cmd": [
+            
+        ]
+    }
+}

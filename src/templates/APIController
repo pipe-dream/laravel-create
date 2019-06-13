@@ -1,0 +1,39 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\___MODEL___;
+ 
+class ___MODEL___APIController extends Controller
+{
+    public function index()
+    {
+        return ___MODEL___::all();
+    }
+ 
+    public function show($id)
+    {
+        return ___MODEL___::___WITH_RELATIONSHIPS___find($id);
+    }
+
+    public function store(Request $request)
+    {
+        return ___MODEL___::create($request->all());
+    }
+
+    public function update(Request $request, $id)
+    {
+        $___MODEL_INSTANCE___ = ___MODEL___::findOrFail($id);
+        $___MODEL_INSTANCE___->update($request->all());
+
+        return $___MODEL_INSTANCE___;
+    }
+
+    public function delete(Request $request, $id)
+    {
+        $___MODEL_INSTANCE___ = ___MODEL___::findOrFail($id);
+        $___MODEL_INSTANCE___->delete();
+
+        return response()->json([], \Illuminate\Http\Response::HTTP_NO_CONTENT);
+    }
+}
