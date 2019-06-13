@@ -54,7 +54,7 @@ export default {
                 "fillable": false,
                 "hidden": true,
                 "index": false,
-                "nullable": false,
+                "nullable": true,
                 "unique": false,
                 "foreign": null
             }
