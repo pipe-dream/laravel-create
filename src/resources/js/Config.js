@@ -1,4 +1,4 @@
-import LaravelFileFactory from './fileFactories/Laravel/FileFactory'
+import LaravelFileFactory from 'laravel-file-factory'
 
 let defaultSettings = {
     FileFactory: LaravelFileFactory,
@@ -10,4 +10,3 @@ export default {
     ... defaultSettings,
     ... __ENV__
 }
-

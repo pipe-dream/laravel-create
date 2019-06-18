@@ -2,12 +2,6 @@ import store from './store'
 import Vue from 'vue'
 import LaravelFileFactory from 'laravel-file-factory'
 
-console.log(
-    "now",
-    LaravelFileFactory.templates()
-)
-
-
 window.Vue = Vue
 
 require('./bootstrap/extendArray')
