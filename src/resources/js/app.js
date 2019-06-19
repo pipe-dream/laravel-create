@@ -1,4 +1,4 @@
-import store from './store'
+import store from './store.js'
 import Vue from 'vue'
 import LaravelFileFactory from 'laravel-file-factory'
 
