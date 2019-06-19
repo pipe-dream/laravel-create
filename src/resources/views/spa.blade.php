@@ -21,7 +21,7 @@
 </head>
 <body>
     <div id="app">
-        <app-header></app-header>
+        <app-headerz></app-headerz>
         <app-workspace></app-workspace>
     </div>
     <script type="text/javascript" src="{{ url('vendor/pipe-dream/laravel/js/app.js') }}"></script>

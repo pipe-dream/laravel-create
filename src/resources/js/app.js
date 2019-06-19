@@ -1,6 +1,9 @@
 import store from './store.js'
 import Vue from 'vue'
 import LaravelFileFactory from 'laravel-file-factory'
+import { components } from 'core'
+
+Vue.component('app-headerz', components.AppHeaderz)
 
 window.Vue = Vue
 
