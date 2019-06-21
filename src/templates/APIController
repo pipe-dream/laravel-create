@@ -11,9 +11,9 @@ class ___MODEL___APIController extends Controller
         return ___MODEL___::all();
     }
  
-    public function show($id)
+    public function show(___MODEL___ $___MODEL_INSTANCE___)
     {
-        return ___MODEL___::___WITH_RELATIONSHIPS___find($id);
+        return $___MODEL_INSTANCE___->___LOAD_RELATIONSHIPS___;
     }
 
     public function store(Request $request)
@@ -21,17 +21,15 @@ class ___MODEL___APIController extends Controller
         return ___MODEL___::create($request->all());
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, ___MODEL___ $___MODEL_INSTANCE___)
     {
-        $___MODEL_INSTANCE___ = ___MODEL___::findOrFail($id);
         $___MODEL_INSTANCE___->update($request->all());
 
         return $___MODEL_INSTANCE___;
     }
 
-    public function delete(Request $request, $id)
+    public function delete(Request $request, ___MODEL___ $___MODEL_INSTANCE___)
     {
-        $___MODEL_INSTANCE___ = ___MODEL___::findOrFail($id);
         $___MODEL_INSTANCE___->delete();
 
         return response()->json([], \Illuminate\Http\Response::HTTP_NO_CONTENT);
