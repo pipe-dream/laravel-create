@@ -31,20 +31,4 @@ export default class APIControllerPipe extends ModelPipe {
             }),
         ].join(", ") + "])"
     }
-
-    withRelationships(model) {
-        return "with([" + [
-            ... model.relationships.hasMany.map(target => {
-                return F.singleQuotePad(F.camelCase(F.pluralize(target.name)))
-            }),
-
-            ... model.relationships.belongsTo.map(target => {
-                return F.singleQuotePad(F.camelCase(target.name))
-            }),
-            
-            ... model.relationships.belongsToMany.map(target => {
-                return F.singleQuotePad(F.camelCase(F.pluralize(target.name)))
-            }),
-        ].join(", ") + "])->"
-    }
 }
