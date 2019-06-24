@@ -1,4 +1,6 @@
 {
     "/src/public/js/app.js": "/src/public/js/app.js",
-    "/src/public/css/app.css": "/src/public/css/app.css"
+    "/src/public/css/app.css": "/src/public/css/app.css",
+    "/home/mateus/public/vendor/pipe-dream/laravel/css/app.css": "/home/mateus/public/vendor/pipe-dream/laravel/css/app.css",
+    "/home/mateus/public/vendor/pipe-dream/laravel/js/app.js": "/home/mateus/public/vendor/pipe-dream/laravel/js/app.js"
 }

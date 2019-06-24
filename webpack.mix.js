@@ -23,19 +23,20 @@ mix.js('src/resources/js/app.js', 'src/public/js')
 mix.copy('src/public/css/app.css', '../../../public/vendor/pipe-dream/laravel/css/app.css')
 mix.copy('src/public/js/app.js', '../../../public/vendor/pipe-dream/laravel/js/app.js')
 
-mix.extend('aliasConfig', new class {
-  webpackConfig(webpackConfig) {
-    webpackConfig.resolve.extensions.push('.js', '.json'); // you don't need this on v4
-    webpackConfig.resolve.alias = {
-      'vue$': 'vue/dist/vue.esm.js',
-      '@components': __dirname + '/src/resources/js/components/',
-      '@pipes': __dirname + '/src/resources/js/fileFactories/Laravel/pipes',
-      '@sketches': __dirname + '/src/resources/js/fileFactories/Laravel/sketches',
-      '@utilities': __dirname + '/src/resources/js/utilities'
-    };
-  }
-});
-mix.aliasConfig();
+// mix.extend('aliasConfig', new class {
+//     webpackConfig(webpackConfig) {
+//         webpackConfig.resolve.extensions.push('.js', 'vue', '.json'); // you don't need this on v4
+//         webpackConfig.resolve.alias = {
+//             'vue$': 'vue/dist/vue.esm.js',
+//             '@components': __dirname + '/src/resources/js/components/',
+//             '@pipes': __dirname + '/src/resources/js/fileFactories/Laravel/pipes',
+//             '@sketches': __dirname + '/src/resources/js/fileFactories/Laravel/sketches',
+//             '@utilities': __dirname + '/src/resources/js/utilities',
+//             '@objectModel': __dirname + '/src/resources/js/objectModel'
+//         };
+//     }
+// });
+// mix.aliasConfig();
 if (mix.inProduction()) {
   mix.version();
 }

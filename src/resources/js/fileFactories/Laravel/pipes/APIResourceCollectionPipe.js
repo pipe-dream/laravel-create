@@ -1,4 +1,4 @@
-import Template from '../../../utilities/Template'
+import Template from '@utilities/Template'
 import ModelPipe from './ModelPipe'
 
 import F from '../../../utilities/Formatter'
