@@ -6,6 +6,18 @@
     https://github.com/thlorenz/brace/issues/55
 -->
 
+<style>
+    .ace_gutter-cell {
+        background: white;
+    }
+
+    .ace_gutter-layer {
+        background: white;
+        border-right: 1px solid #F1F5F8;
+    }
+</style>
+
+
 <script>
 
 var ace = require('./BraceWithBugFix');
@@ -33,7 +45,11 @@ module.exports = {
         placeholder: {
             type: String,
             default: ""
-        }
+        },
+        showGutter: {
+            type: Boolean,
+            default: false
+        },        
     },
     data: function () {
         return {
@@ -130,7 +146,7 @@ module.exports = {
             minLines: 20,
             maxLines: 1000,  
             showLineNumbers: false,
-            showGutter: false,
+            showGutter: this.showGutter,
             highlightActiveLine: false,   
             //inline: true,
             showPrintMargin: false,

@@ -66,11 +66,30 @@ token
 
 <kbd><img src="src/public/img/screenshots/api.png" width="400" /></kbd>
 
-## Alpha disclaimer
-This package is still very much in development. Please post issues and send PRs.
+## Development roadmap
+This package is still very much in development. Below is a rough plan for the future.
+
+### Alpha ( < v0.1.0 )
+* The main goal of the alpha is to act as a proof of concept specifically for Laravel applications.
+* Bug fixes will continiue until the alpha is stable.
+* New features will be added only if the work required is reasonable.
+* Complex new features or non critical bug fixes might be postponed to the Beta version.
+
+### Beta ( v0.1.0 )
+* Most of the Javascript will be extracted to its own repository ( pipe-dream/core ) in order to easily enable support for multiple FileFactories in separate repos (Maybe ExpressFileFactory, DjangoFileFactory or others). This repo (pipe-dream/laravel) will then extend that core with logic, rules, data etc specific only for Laravel.
+* Backend and frontend interfaces/API specifications are supplied to make it clear what other implementations need to conform to.
+
+### Version 1 ( v1.0.0 )
+* When the beta is stable we will bump it up to v1.0.0
+
+### Help us out
+Help us out by simply trying this package. Feel free to post issues if you have a question, find a bug, have some idea for improvement or if you just want to share your experience. PRs are more than welcome, you dont need to be a pro.
+Start by looking at this [Trello board](https://trello.com/b/R11mhfdy/pipe-dream) listing all the stuff that needs to get done.
 
 ## License
 MIT
 
 ## Stay tuned!
 Follow me on twitter: [@ajthinking](https://twitter.com/ajthinking)
+
+<a href="https://www.patreon.com/ajthinking" >Help me continue this work | Patreon</a>

@@ -23,10 +23,13 @@
                     class="w-full bg-grey-lightest rounded p-2 text-sm border" 
                     v-model="schema"
                     lang="json"
+                    :showGutter="true"
                 ></code-editor>
+                <!--
                 <div class="mt-1">
                     <button :class="buttonStyle">+ some action</button>
-                </div>                        
+                </div>
+                -->
             </div>
         </div>
     </div>  
