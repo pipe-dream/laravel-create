@@ -1,5 +1,5 @@
 import Template from '@utilities/Template'
-import BasePipe from './BasePipe'
+import BasePipe from '@pipes/BasePipe'
 import F from '@utilities/Formatter'
 
 export default class ModelPipe extends BasePipe {

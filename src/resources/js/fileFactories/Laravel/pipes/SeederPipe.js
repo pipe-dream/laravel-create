@@ -1,5 +1,5 @@
 import Template from '@utilities/Template'
-import ModelPipe from './ModelPipe'
+import ModelPipe from '@pipes/ModelPipe'
 import ModelEntity from '@objectModel/entities/ModelEntity'
 
 import F from '@utilities/Formatter'

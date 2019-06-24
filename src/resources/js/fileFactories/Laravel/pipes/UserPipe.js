@@ -1,5 +1,5 @@
-import Template from '../../../utilities/Template'
-import ModelPipe from './ModelPipe';
+import Template from '@utilities/Template'
+import ModelPipe from '@pipes/ModelPipe';
 
 export default class UserPipe extends ModelPipe {
     calculateFiles(omc = ObjectModelCollection) {

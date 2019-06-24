@@ -28,11 +28,13 @@ mix.extend('aliasConfig', new class {
         webpackConfig.resolve.extensions.push('.js', 'vue', '.json'); // you don't need this on v4
         webpackConfig.resolve.alias = {
             vue: 'vue/dist/vue.js',
+            '@': __dirname + '/src/resources/js/',
             '@components': __dirname + '/src/resources/js/components/',
             '@pipes': __dirname + '/src/resources/js/fileFactories/Laravel/pipes',
             '@sketches': __dirname + '/src/resources/js/fileFactories/Laravel/sketches',
             '@utilities': __dirname + '/src/resources/js/utilities',
-            '@objectModel': __dirname + '/src/resources/js/objectModel'
+            '@objectModel': __dirname + '/src/resources/js/objectModel',
+            '@entities': __dirname + '/src/resources/js/objectModel/entities',
         };
     }
 });
