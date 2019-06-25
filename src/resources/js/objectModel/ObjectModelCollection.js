@@ -29,7 +29,7 @@ export default class ObjectModelCollection {
         var manyToManyRegExp = new RegExp("^(" + models + ")_(" + models + ")$");
         var matches = manyToManyRegExp.exec(candidate.name);
 
-        if (matches) {
+        if(matches) {
             return [matches[1], matches[2]];
         }
 
@@ -159,7 +159,7 @@ export default class ObjectModelCollection {
 
     serializeSchema() {
         //return this.entities.map(entity => entity.serialize())
-        return this.entities.reduce((carry, entity) => {
+        return this.entities.reduce((carry,entity) => {
             carry[entity.name] = entity.serialize()
             return carry
         }, {})
