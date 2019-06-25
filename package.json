@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.4"
     },
     "dependencies": {
+        "axios": "^0.19.0",
         "brace": "^0.11.0",
         "change-case": "^3.1.0",
         "collect.js": "^4.6.5",
