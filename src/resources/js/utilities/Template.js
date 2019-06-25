@@ -1,6 +1,6 @@
 import store from '../store'
 
-import ModelPipe from "../fileFactories/Laravel/pipes/ModelPipe"
+import ModelPipe from "@pipes/ModelPipe"
 
 export default class Template {
     constructor(text) {

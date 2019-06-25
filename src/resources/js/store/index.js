@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import Parser from '../objectModel/SketchParser'
-import ObjectModelCollection from '../objectModel/ObjectModelCollection'
-import ObjectModelEntityFactory from '../objectModel/ObjectModelEntityFactory'
+import Parser from '@objectModel/SketchParser'
+import ObjectModelCollection from '@objectModel/ObjectModelCollection'
+import ObjectModelEntityFactory from '@objectModel/ObjectModelEntityFactory'
 import Config from '../Config'
 const mergeJSON = require('deepmerge')
 

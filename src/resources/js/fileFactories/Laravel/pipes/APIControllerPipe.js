@@ -1,6 +1,6 @@
-import Template from '../../../utilities/Template'
-import ModelPipe from './ModelPipe';
-import F from '../../../utilities/Formatter'
+import Template from '@utilities/Template'
+import ModelPipe from '@pipes/ModelPipe';
+import F from '@utilities/Formatter'
 
 export default class APIControllerPipe extends ModelPipe {
     calculateFiles(omc = ObjectModelCollection) {

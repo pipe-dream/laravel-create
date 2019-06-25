@@ -1,7 +1,7 @@
-import Template from '../../../utilities/Template'
-import BasePipe from './BasePipe'
-import F from '../../../utilities/Formatter'
-import ModelEntity from '../../../objectModel/entities/ModelEntity';
+import Template from '@utilities/Template'
+import BasePipe from '@pipes/BasePipe'
+import F from '@utilities/Formatter'
+import ModelEntity from '@objectModel/entities/ModelEntity';
 
 export default class MigrationPipe extends BasePipe {
     calculateFiles(omc = ObjectModelCollection) {

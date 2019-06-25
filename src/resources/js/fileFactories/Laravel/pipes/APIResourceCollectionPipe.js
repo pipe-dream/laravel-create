@@ -1,5 +1,5 @@
-import Template from '../../../utilities/Template'
-import ModelPipe from './ModelPipe'
+import Template from '@utilities/Template'
+import ModelPipe from '@pipes/ModelPipe'
 
 import F from '../../../utilities/Formatter'
 import { random } from 'node-forge';
