@@ -71,6 +71,19 @@ export default class FactoryPipe extends ModelPipe {
             float: { default: "$faker->randomFloat()" },
             unsignedDecimal: { default: "$faker->randomFloat()" },
 
+            time: { default: "$faker->time()" },
+            date: { default: "$faker->date()" },
+            dateTime: { default: "$faker->dateTime()" },
+            dateTimeTz: { default: "$faker->dateTime('now', 'UTC')" },
+            timestampTz: { default: "$faker->dateTime('now', 'UTC')" },
+            year: {default: "$faker->year()" },
+
+            ipAddress: { default: "$faker->ipv4" },
+            macAddress: { default: "$faker->macAddress" },
+            uuid: { default: "$faker->unique()->uuid" },
+
+            char: { default: "$faker->lexify('?'"},
+
             /*
             to be implemented **********************************************
             */
@@ -86,25 +99,15 @@ export default class FactoryPipe extends ModelPipe {
                 'multiPoint',
                 'multiPolygon',
                 'geometryCollection',
-                'time',
                 'timeTz',
-                'timestampTz',
                 'timestamps',
                 'timestampsTz',
-                'ipAddress',
-                'dateTime',
-                'dateTimeTz',
                 'nullableMorphs',
-                'uuid',
-                'year',
                 'binary',
-                'char',
-                'date',
                 'enum',
                 'json',
                 'jsonb',
                 'lineString',
-                'macAddress',
                 'morphs',
                 'multiLineString',
                 'nullableTimestamps',
