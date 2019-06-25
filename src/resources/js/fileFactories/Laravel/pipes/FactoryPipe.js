@@ -58,7 +58,7 @@ export default class FactoryPipe extends ModelPipe {
             unsignedSmallInteger: { default: "random_int(0, 65535)"},
             unsignedMediumInteger: { default: "random_int(0, 16777215)"},
             unsignedInteger: { default: "random_int(0, 4294967295)"},
-            unsignedBigInteger: { default: "random_int(0, 18446744073709551615)"},
+            unsignedBigInteger: { default: "random_int(0, 9223372036854775807)"},
 
             text: { default: "$faker->realText()"},
             longText: { default: "$faker->realText()"},
