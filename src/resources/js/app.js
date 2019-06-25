@@ -1,16 +1,9 @@
 import store from './store.js'
 import Vue from 'vue'
-import LaravelFileFactory from 'laravel-file-factory'
-import { components } from 'core'
-
-Vue.component('app-headerz', components.AppHeaderz)
+import { PipeDreamVueTools } from 'core'
 
 window.Vue = Vue
-
-require('./bootstrap/extendArray')
-require('./bootstrap/assignConstants')
-require('./bootstrap/registerVueDirectives')
-require('./bootstrap/registerVueComponents')
+Vue.use(PipeDreamVueTools)
 
 /* Lets go! */
 const app = new Vue({
