@@ -4,7 +4,7 @@ import ModelPipe from '@pipes/ModelPipe'
 import F from '../../../utilities/Formatter'
 import { random } from 'node-forge';
 
-export default class APIResourcePipe extends ModelPipe {
+export default class APIResourceCollectionPipe extends ModelPipe {
     calculateFiles(omc = ObjectModelCollection) {
         return [
             ... this.APIResourceFiles(),
