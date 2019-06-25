@@ -19,19 +19,6 @@ class PipeDreamAPIController extends BaseController
         $this->args = json_decode(request()->getContent());
     }
 
-    public function templates()
-    {
-        return $this->getTemplates();
-    }
-
-    public function scripts()
-    {
-        return [
-            'migrate',
-            'seed',
-        ];
-    }
-
     public function build()
     {
         // Setup project - sandboxed or regular
@@ -84,14 +71,5 @@ class PipeDreamAPIController extends BaseController
     private function pathToFileName($path)
     {
         return substr($path, strrpos($path, '/') + 1);
-    }
-
-    private function getTemplates()
-    {
-        return collect(glob(__DIR__.'/../templates/*'))->reduce(function ($allFiles, $path) {
-            $allFiles[$this->pathToFileName($path)] = File::get($path);
-
-            return $allFiles;
-        }, collect([]));
     }
 }

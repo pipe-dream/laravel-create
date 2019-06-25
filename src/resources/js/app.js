@@ -5,8 +5,7 @@ import { PipeDreamVueTools } from 'core'
 window.Vue = Vue
 Vue.use(PipeDreamVueTools)
 
-/* Lets go! */
-const app = new Vue({
+new Vue({
     el: '#app',
     store
 })

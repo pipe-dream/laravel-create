@@ -1,7 +1,0 @@
-/**
- * Get the ___TARGET_CLASS___ for the ___THIS_CLASS___.
- */
-public function ___METHOD_NAME___()
-{
-    return $this->hasOne(\App\___TARGET_CLASS___::class);
-}

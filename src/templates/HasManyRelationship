@@ -1,7 +1,0 @@
-/**
- * Get the ___TARGET_CLASS_PLURAL___ for the ___THIS_CLASS___.
- */
-public function ___METHOD_NAME___()
-{
-    return $this->hasMany(\App\___TARGET_CLASS___::class);
-}

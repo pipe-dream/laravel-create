@@ -1,9 +1,0 @@
-<?
-
-namespace App\YEEEAAAA\SomeFolder;
-
-class COOOOOL {
-    public function() {
-        return "hej";
-    }
-}

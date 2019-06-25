@@ -1,3 +1,0 @@
-Route::resource('___RESOURCE_NAME___', '___MODEL_NAME___APIController', [
-    'only' => ['index', 'show', 'store', 'update', 'delete']
-]);
