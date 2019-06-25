@@ -1,6 +1,6 @@
 import Attribute from './Attribute'
-import Preference from '../utilities/Preference'
-import F from '../utilities/Formatter'
+import Preference from '@utilities/Preference'
+import F from '@utilities/Formatter'
 import getDataType from './attributePropertyResolvers/getDataType'
 
 export default class AttributeFactory {

@@ -1,4 +1,4 @@
-import F from '../utilities/Formatter'
+import F from '@utilities/Formatter'
 
 export default class Segment {
     constructor(chunk) {
