@@ -42,27 +42,27 @@ export default class FactoryPipe extends ModelPipe {
                 email: "$faker->unique()->safeEmail",
                 password: "'$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'", // password
                 remember_token: "Str::random(10)",
-                ... { /* add more common names here */},
+                ... { /* add more common names here */ },
                 default: "$faker->sentence()"
             },
             timestamp: {
                 email_verified_at: "now()",
                 default: "$faker->dateTimeBetween('-30 years', 'now')"
             },
-            tinyInteger: { default: "random_int(-128, 127)"},
-            smallInteger: { default: "random_int(-32768, 32767)"},
-            mediumInteger: { default: "random_int(-8388608, 8388607)"},
-            integer: { default: "random_int(-2147483648, 2147483647)"},
-            bigInteger: { default: "random_int(-9223372036854775808, 9223372036854775807)"},
-            unsignedTinyInteger: { default: "random_int(0, 255)"},
-            unsignedSmallInteger: { default: "random_int(0, 65535)"},
-            unsignedMediumInteger: { default: "random_int(0, 16777215)"},
-            unsignedInteger: { default: "random_int(0, 4294967295)"},
-            unsignedBigInteger: { default: "random_int(0, 9223372036854775807)"},
+            tinyInteger: { default: "random_int(-128, 127)" },
+            smallInteger: { default: "random_int(-32768, 32767)" },
+            mediumInteger: { default: "random_int(-8388608, 8388607)" },
+            integer: { default: "random_int(-2147483648, 2147483647)" },
+            bigInteger: { default: "random_int(-9223372036854775808, 9223372036854775807)" },
+            unsignedTinyInteger: { default: "random_int(0, 255)" },
+            unsignedSmallInteger: { default: "random_int(0, 65535)" },
+            unsignedMediumInteger: { default: "random_int(0, 16777215)" },
+            unsignedInteger: { default: "random_int(0, 4294967295)" },
+            unsignedBigInteger: { default: "random_int(0, 9223372036854775807)" },
 
-            text: { default: "$faker->realText()"},
-            longText: { default: "$faker->realText()"},
-            mediumText: { default: "$faker->realText()"},
+            text: { default: "$faker->realText()" },
+            longText: { default: "$faker->realText()" },
+            mediumText: { default: "$faker->realText()" },
 
             boolean: { default: "$faker->boolean()" },
 
@@ -82,7 +82,7 @@ export default class FactoryPipe extends ModelPipe {
             macAddress: { default: "$faker->macAddress" },
             uuid: { default: "$faker->unique()->uuid" },
 
-            char: { default: "$faker->lexify('?'"},
+            char: { default: "$faker->lexify('?'" },
 
             /*
             to be implemented **********************************************
