@@ -14,7 +14,9 @@ Vue.config.debug = true
  * Attach it to window to make it accessible inside core and file factories */
 window.store = new Vuex.Store(
     new PipeDream({
-        fileFactory: LaravelFileFactory
+        fileFactories: [
+            LaravelFileFactory
+        ]
     }).defaultStore
 )
 
