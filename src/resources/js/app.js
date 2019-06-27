@@ -5,10 +5,10 @@ import { PipeDreamVueTools } from 'core'
 import LaravelFileFactory from 'laravel-file-factory';
 
 /* setup Vue to use Vuex and Pipe Dream components */
-window.Vue = Vue
 Vue.use(Vuex)
 Vue.use(PipeDreamVueTools)
 Vue.config.debug = true
+window.Vue = Vue
 
 /* Create Pipe Dream default store
  * Attach it to window to make it accessible inside core and file factories */
