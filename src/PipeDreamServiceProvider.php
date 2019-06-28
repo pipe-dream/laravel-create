@@ -29,6 +29,9 @@ class PipeDreamServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__.'/routes/routes.php');
         $this->loadViewsFrom(__DIR__.'/resources/views', 'pipe-dream');
         $this->registerStorages();
+        $this->publishes([
+            __DIR__.'/templates' => storage_path('pipe-dream/templates'),
+        ], 'templates');
     }
 
     /*

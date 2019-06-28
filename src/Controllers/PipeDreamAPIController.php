@@ -88,7 +88,8 @@ class PipeDreamAPIController extends BaseController
 
     private function getTemplates()
     {
-        return collect(glob(__DIR__.'/../templates/*'))->reduce(function ($allFiles, $path) {
+        $templates_path = File::isDirectory(storage_path('pipe-dream/templates')) ? storage_path('pipe-dream/templates') : __DIR__.'/../templates';
+        return collect(glob($templates_path.'/*'))->reduce(function ($allFiles, $path) {
             $allFiles[$this->pathToFileName($path)] = File::get($path);
 
             return $allFiles;
