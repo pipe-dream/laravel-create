@@ -15,6 +15,8 @@ export default class SketchParser {
 
     clean() {
         this.text = this.text
+            // force UNIX-style line ending (LF)
+            .replace(/\r\n/gm, "\n")
             // remove comments
             .replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, "")        
             // trim preciding line space
