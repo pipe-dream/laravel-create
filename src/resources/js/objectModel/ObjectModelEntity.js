@@ -6,6 +6,7 @@ import Preference from '@utilities/Preference'
 export default class ObjectModelEntity {
     constructor() {
         this.relationships = {}
+        this.softdeletes = false
     }
 
     static fromSegment(segment, allSegments) {
@@ -84,6 +85,7 @@ export default class ObjectModelEntity {
         const serialize_results = {
             name: this.name,
             type: this.constructor.name,
+            softdeletes: this.softdeletes,
             //attributes: this.attributes.map(attribute => attribute.serialize()),
             attributes: this.attributes.reduce((carry, attribute) => {
                 carry[attribute.name] = attribute.serialize()
