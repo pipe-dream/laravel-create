@@ -12,6 +12,7 @@ export default class MigrationPipe extends BasePipe {
                     ___CLASS_NAME___: this.migrationFileClassName(entity),
                     ___TABLE___: this.tableName(entity),
                     ___COLUMNS_BLOCK___: this.columns(entity),
+                    ___SOFT_DELETES_BLOCK___: entity.softdeletes ? "$table->softDeletes();" : ""
                 })
             }
         })
@@ -28,7 +29,7 @@ export default class MigrationPipe extends BasePipe {
     tableName(entity) {
         if(!(entity instanceof ModelEntity)) {
             return entity.name
-        }  
+        }
 
         return F.snakeCase(F.pluralize(entity.name))
     }
@@ -42,7 +43,7 @@ export default class MigrationPipe extends BasePipe {
     statementsFor(attribute) {
         return [
             `$table->${attribute.dataType}('${attribute.name}')${this.chainings(attribute)};`,
-            ... this.addForeignKeyConstraintFor(attribute) 
+            ... this.addForeignKeyConstraintFor(attribute)
         ].join(___SINGLE_LINE_BREAK___)
     }
 
@@ -58,9 +59,9 @@ export default class MigrationPipe extends BasePipe {
         if(attribute.nullable) chainings += "->nullable()";
         if(attribute.unique) chainings += "->unique()";
         return chainings
-        
+
     }
-    
+
     migrationTimeStamp(index) {
         let current_datetime = new Date()
         return current_datetime.getFullYear() + "_"
