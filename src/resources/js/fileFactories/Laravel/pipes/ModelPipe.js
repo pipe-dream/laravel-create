@@ -13,7 +13,7 @@ export default class ModelPipe extends BasePipe {
                     ___FILLABLE___: this.fillableAttributes(model),
                     ___CASTS_BLOCK___: this.casts(model) ? this.casts(model) : "//",
                     ___RELATIONSHIP_METHODS_BLOCK___: this.relationshipMethods(model),
-                    ___SOFT_DELETES_BLOCK : model.softdeletes ? "Soft deletes" : ""
+                    ___SOFT_DELETES_BLOCK___ : model.softdeletes ? "Soft deletes" : ""
                 })
             }
         })
