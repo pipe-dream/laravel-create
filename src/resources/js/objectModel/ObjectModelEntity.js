@@ -11,6 +11,7 @@ export default class ObjectModelEntity {
     static fromSegment(segment, allSegments) {
         let entity = new this()
         entity.name = segment.name
+        entity.softdeletes = segment.softdeletes
         entity.allSegments = allSegments
         // Sort and only keep unique attributes
         let attributeRows = [
@@ -20,13 +21,14 @@ export default class ObjectModelEntity {
                 ... entity.optionalColumns(['created_at', 'updated_at']),
             ])
         ]
-        entity.attributes = attributeRows.map(name => AttributeFactory.make(name, entity, allSegments))        
+        entity.attributes = attributeRows.map(name => AttributeFactory.make(name, entity, allSegments))
         return entity
     }
 
     static deserialize(data) {
         let entity = new this()
         entity.name = data.name
+        entity.softdeletes = data.softdeletes
         entity.attributes = Object.keys(data.attributes).map(key => {
             return new Attribute({
                 ...data.attributes[key],
@@ -34,7 +36,7 @@ export default class ObjectModelEntity {
             })
         })
         entity.relationships = data.relationships
-        return entity        
+        return entity
     }
 
     attributeNames() {
@@ -69,13 +71,13 @@ export default class ObjectModelEntity {
     isModelEntity() {
         return this.constructor.name == "ModelEntity"
     }
-    
+
     isTableEntity() {
         return this.constructor.name == "TableEntity"
     }
-    
+
     asForeignKey() {
-        return F.snakeCase(this.name) + "_id";       
+        return F.snakeCase(this.name) + "_id";
     }
 
     serialize() {
@@ -94,7 +96,7 @@ export default class ObjectModelEntity {
                 belongsToMany: this.relationships.belongsToMany.map(target => target.name)
             }
         }
-        
-        return  serialize_results; 
+
+        return  serialize_results;
     }
 }

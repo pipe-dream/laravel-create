@@ -15,6 +15,7 @@ class ___CLASS_NAME___ extends Migration
     {
         Schema::create('___TABLE___', function (Blueprint $table) {
             ___COLUMNS_BLOCK___
+            ___SOFT_DELETES_BLOCK___
         });
     }
 

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ___CLASS_NAME___ extends Model
 {
+    ___SOFT_DELETES_BLOCK___
     /**
      * The attributes that are mass assignable.
      *
@@ -31,7 +32,7 @@ class ___CLASS_NAME___ extends Model
      */
     protected $casts = [
         ___CASTS_BLOCK___
-    ];    
+    ];
 
     ___RELATIONSHIP_METHODS_BLOCK___
 }

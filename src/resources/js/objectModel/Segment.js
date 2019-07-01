@@ -5,6 +5,9 @@ export default class Segment {
         let parts = chunk.split('\n')
         this.name = parts[0]
         this.attributes = parts.slice(1)
+        this.softdeletes = this.attributes[0] === "softdeletes"
+        if(this.softdeletes)
+            this.attributes = parts.slice(2)
     }
 
     static fromText(chunk) {
@@ -18,5 +21,5 @@ export default class Segment {
 
     hasUserModel() {
         return this.name == "User"
-    }    
+    }
 }
