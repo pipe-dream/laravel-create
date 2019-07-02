@@ -5,35 +5,34 @@ import collect from 'collect.js'
 import _ from 'lodash'
 
 export default class ObjectModelCollection {
-    constructor() {
-        //this.attachRelationships()
-        //this.attachPivotAttributes()
+    constructor(entities = []) {
+        this.entities = entities;
+        this.regexes = {
+            manyToMany : () => new RegExp("^(" + this.modelsIncludingUser() + ")_(" + this.modelsIncludingUser() + ")$")
+        }
     }
 
     static fromEntities(entities) {
-        let omc = new this
-        omc.entities = entities
-        return omc
+        return new this(entities)
     }
 
     static fromSchema(schema) {
-        let omc = new this
-        omc.entities = ObjectModelEntityFactory.fromSchema(schema)
-        return omc
+        return new this(ObjectModelEntityFactory.fromSchema(schema))
+    }
+
+    static getModelRegexString(models){
+        return models.map(item => F.snakeCase(item.name).toLowerCase()).join("|")
     }
 
     isManyToMany(candidate) {
-        var models = this.modelsIncludingUser().map((item) => {
-            return F.snakeCase(item.name).toLowerCase();
-        }).join("|");
-        var manyToManyRegExp = new RegExp("^(" + models + ")_(" + models + ")$");
-        var matches = manyToManyRegExp.exec(candidate.name);
+        return this.regexes.manyToMany().test(candidate.name);
+    }
 
-        if(matches) {
-            return [matches[1], matches[2]];
-        }
+    getManyToMany(candidate){
+        if(!this.isManyToMany(candidate))
+            return []
 
-        return !!matches
+        let models = ObjectModelCollection.getModelRegexString(this.modelsIncludingUser())
     }
 
     manyToManyAssociatedModels(manyToManyEntity) {
