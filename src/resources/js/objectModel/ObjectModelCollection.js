@@ -5,44 +5,35 @@ import collect from 'collect.js'
 import _ from 'lodash'
 
 export default class ObjectModelCollection {
-    constructor() {
-        //this.attachRelationships()
-        //this.attachPivotAttributes()
+    constructor(entities = []) {
+        this.entities = entities;
+        this.regexes = {
+            manyToMany : () => new RegExp("^(" + this.modelsIncludingUser() + ")_(" + this.modelsIncludingUser() + ")$")
+        }
     }
 
     static fromEntities(entities) {
-        let omc = new this
-        omc.entities = entities
-        return omc
+        return new this(entities)
     }
 
     static fromSchema(schema) {
-        let omc = new this
-        omc.entities = ObjectModelEntityFactory.fromSchema(schema)
-        return omc
+        return new this(ObjectModelEntityFactory.fromSchema(schema))
+    }
+
+    static getModelRegexString(models){
+        return models.map(item => F.snakeCase(item.name).toLowerCase()).join("|")
     }
 
     isManyToMany(candidate) {
-        var models = this.modelsIncludingUser().map((item) => {
-            return F.snakeCase(item.name).toLowerCase();
-        }).join("|");
-        var manyToManyRegExp = new RegExp("^(" + models + ")_(" + models + ")$");
-        var matches = manyToManyRegExp.exec(candidate.name);
-
-        if(matches) {
-            return [matches[1], matches[2]];
-        }
-
-        return !!matches
+        return this.regexes.manyToMany().test(candidate.name);
     }
 
-    manyToManyAssociatedModels(manyToManyEntity) {
-        var models = this.modelsIncludingUser().map((item) => {
-            return F.snakeCase(item.name).toLowerCase();
-        }).toArray().join("|");
-        var manyToManyRegExp = new RegExp("^(" + models + ")_(" + models + ")$");
-        var matches = manyToManyRegExp.exec(manyToManyEntity.name);
-        return [matches[1], matches[2]];
+    getManyToMany(candidate){
+        if(!this.isManyToMany(candidate))
+            return []
+
+        let models = this.regexes.manyToMany().exec(candidate.name);
+        return [models[1], models[2]]
     }
 
     hasUserModel() {
@@ -58,19 +49,19 @@ export default class ObjectModelCollection {
     }
 
     userModels() {
-        return this.entities.filter(entitiy => entitiy.isUserEntity())
+        return this.entities.filter(entity => entity.isUserEntity())
     }
 
     models() {
-        return this.entities.filter(entitiy => entitiy.isModelEntity())
+        return this.entities.filter(entity => entity.isModelEntity())
     }
 
     tablesOnly() {
-        return this.entities.filter(entity => entity.name == entity.name.toLowerCase())
+        return this.entities.filter(entity => entity.name === entity.name.toLowerCase())
     }
 
     manyToManys() {
-        return this.tablesOnly().filter(entitiy => this.isManyToMany(entitiy))
+        return this.tablesOnly().filter(entity => this.isManyToMany(entity))
     }
 
     modelsIncludingUser() {
@@ -136,25 +127,6 @@ export default class ObjectModelCollection {
         }
 
         return sortedEntities.concat(manyToMany)
-    }
-
-    attachPivotAttributes() {
-        this.manyToManys().each(entity => {
-            this.manyToManyAssociatedModels(entity).forEach(modelName => {
-                entity.attributes.push(
-                    new Attribute(
-                        {
-                            name: F.snakeCase(modelName) + "_id",
-                            parent: entity,
-                            dataType: "unsignedBigInteger",
-                            fillable: false,
-                            hidden: false,
-                            nullable: false,
-                        }
-                    )
-                )
-            })
-        })
     }
 
     serializeSchema() {
