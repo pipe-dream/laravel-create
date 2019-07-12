@@ -61,16 +61,6 @@ export default class MigrationPipe extends BasePipe {
         return chainings
     }
 
-    _migrationTimeStamp(index) {
-        let current_datetime = new Date()
-        return current_datetime.getFullYear() + "_"
-            + (current_datetime.getMonth() + 1 < 10 ? "0" + (current_datetime.getMonth() + 1) : current_datetime.getMonth() + 1)
-            + "_" + (current_datetime.getDate() < 10 ? "0" + current_datetime.getDate() : current_datetime.getDate())
-            + "_" + current_datetime.getHours()
-            + (current_datetime.getMinutes() < 10 ? "0" + current_datetime.getMinutes() : current_datetime.getMinutes())
-            + (index < 10 ? "0" + index : index)
-    }
-
     migrationTimeStamp(index) {
         // prepare timestamp parts
         let current_datetime = new Date(),
