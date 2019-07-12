@@ -70,7 +70,6 @@ export default class MigrationPipe extends BasePipe {
             + "_" + current_datetime.getHours()
             + (current_datetime.getMinutes() < 10 ? "0" + current_datetime.getMinutes() : current_datetime.getMinutes())
             + (index < 10 ? "0" + index : index)
-
     }
 }
 
