@@ -5,3 +5,4 @@ migrations_metadata.csv
 package-lock.json
 .vscode
 yarn.lock
+mix-manifest.json
