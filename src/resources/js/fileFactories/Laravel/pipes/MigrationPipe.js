@@ -61,7 +61,7 @@ export default class MigrationPipe extends BasePipe {
         return chainings
     }
 
-    migrationTimeStamp(index) {
+    _migrationTimeStamp(index) {
         let current_datetime = new Date()
         return current_datetime.getFullYear() + "_"
             + (current_datetime.getMonth() + 1 < 10 ? "0" + (current_datetime.getMonth() + 1) : current_datetime.getMonth() + 1)
@@ -69,6 +69,22 @@ export default class MigrationPipe extends BasePipe {
             + "_" + current_datetime.getHours()
             + (current_datetime.getMinutes() < 10 ? "0" + current_datetime.getMinutes() : current_datetime.getMinutes())
             + (index < 10 ? "0" + index : index)
+    }
+
+    migrationTimeStamp(index) {
+        // prepare timestamp parts
+        let current_datetime = new Date(),
+            year = current_datetime.getFullYear(),
+            month = String(current_datetime.getMonth() + 1).padStart(2,'0'),
+            day = String(current_datetime.getDate()).padStart(2,'0'),
+            hour = String(current_datetime.getHours()).padStart(2,'0'),
+            minute = String(current_datetime.getMinutes()).padStart(2,'0')
+
+        // Assume at most 99 migrations
+        index = String(index).padStart(2,'0')
+
+        // Example: 2014_10_12_000000
+        return `${year}_${month}_${day}_${hour}${minute}${index}`
     }
 }
 
