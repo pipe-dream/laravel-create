@@ -59,7 +59,6 @@ export default class MigrationPipe extends BasePipe {
         if(attribute.nullable || attribute.dataType === "timestamp") chainings += "->nullable()";
         if(attribute.unique) chainings += "->unique()";
         return chainings
-
     }
 
     migrationTimeStamp(index) {
