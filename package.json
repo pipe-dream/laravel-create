@@ -10,6 +10,9 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
+        "@pipe-dream/core": "^1.0.2",
+        "@pipe-dream/example-file-factory": "^1.0.2",
+        "@pipe-dream/laravel-file-factory": "^1.0.2",
         "cross-env": "^5.1",
         "laravel-mix": "^4.0.14",
         "laravel-mix-purgecss": "^4.1",

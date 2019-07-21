@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import PipeDream from 'core'
-import { PipeDreamVueTools } from 'core'
-import LaravelFileFactory from 'laravel-file-factory';
+import PipeDream from '@pipe-dream/core'
+import { PipeDreamVueTools } from '@pipe-dream/core'
+import LaravelFileFactory from '@pipe-dream/laravel-file-factory';
 
 /* setup Vue to use Vuex and Pipe Dream components */
 Vue.use(Vuex)
