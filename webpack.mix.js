@@ -16,7 +16,6 @@ require('laravel-mix-purgecss');
 
 mix.js('src/resources/js/app.js', 'src/public/js')
    .postCss('src/resources/css/app.css', 'src/public/css')
-   .tailwind()
    .purgeCss();
 
 /* while developing make sure public/vendor/pipe-dream/laravel is fresh */
