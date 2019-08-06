@@ -15,6 +15,7 @@ class PipeDreamWebController extends BaseController
             'settings' => [
                 'isSandboxed' => env('PIPEDREAM_IS_SANDBOXED', false),
                 'appName'     => request()->path(),
+                'workbench_data' => json_decode("{}") // not implemented
             ],
         ]);
     }
