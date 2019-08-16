@@ -1,6 +1,6 @@
 <?php
 
-namespace PipeDream\Laravel\Controllers;
+namespace PipeDream\LaravelCreate\Controllers;
 
 use Artisan;
 use File;
@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
-use PipeDream\Laravel\ProjectFileManager;
+use PipeDream\LaravelCreate\ProjectFileManager;
 
 class PipeDreamAPIController extends BaseController
 {

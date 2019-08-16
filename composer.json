@@ -1,5 +1,5 @@
 {
-    "name": "pipe-dream/laravel",
+    "name": "pipe-dream/laravel-create",
     "type": "package",
     "description": "Watch how this package DESTROYS all other generators. Boilerplate repos HATE it!",
     "keywords": [
@@ -21,13 +21,13 @@
     "extra": {
         "laravel": {
             "providers": [
-                "PipeDream\\Laravel\\PipeDreamServiceProvider"
+                "PipeDream\\LaravelCreate\\LaravelCreateServiceProvider"
             ]
         }
     },
     "autoload": {
         "psr-4": {
-            "PipeDream\\Laravel\\": "src/"
+            "PipeDream\\LaravelCreate\\": "src/"
         }
     },
     "autoload-dev": {

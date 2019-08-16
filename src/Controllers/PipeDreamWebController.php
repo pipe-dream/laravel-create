@@ -1,15 +1,15 @@
 <?php
 
-namespace PipeDream\Laravel\Controllers;
+namespace PipeDream\LaravelCreate\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
-use PipeDream\Laravel\PipeDreamServiceProvider;
+use PipeDream\LaravelCreate\LaravelCreateServiceProvider;
 
 class PipeDreamWebController extends BaseController
 {
     public function index()
     {
-        PipeDreamServiceProvider::publishAssets();
+        LaravelCreateServiceProvider::publishAssets();
 
         return view('pipe-dream::spa')->with([
             'settings' => [
