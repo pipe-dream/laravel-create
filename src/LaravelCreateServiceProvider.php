@@ -1,11 +1,11 @@
 <?php
 
-namespace PipeDream\Laravel;
+namespace PipeDream\LaravelCreate;
 
 use Illuminate\Support\ServiceProvider;
-use PipeDream\Laravel\Commands\DumpAutoload;
+use PipeDream\LaravelCreate\Commands\DumpAutoload;
 
-class PipeDreamServiceProvider extends ServiceProvider
+class LaravelCreateServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
@@ -41,12 +41,12 @@ class PipeDreamServiceProvider extends ServiceProvider
     {
         \File::copyDirectory(
             __DIR__.'/public',
-            public_path('vendor/pipe-dream/laravel')
+            public_path('vendor/pipe-dream/laravel-create')
         );
 
         \File::copy(
             __DIR__.'/../data/dataTypeGithubDump.js',
-            public_path('vendor/pipe-dream/laravel/data/github.js')
+            public_path('vendor/pipe-dream/laravel-create/data/github.js')
         );
     }
 

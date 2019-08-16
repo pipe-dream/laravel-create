@@ -1,6 +1,6 @@
 <?php
 
-namespace PipeDream\Laravel\Commands;
+namespace PipeDream\LaravelCreate\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Composer;

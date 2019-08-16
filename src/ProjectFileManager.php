@@ -1,6 +1,6 @@
 <?php
 
-namespace PipeDream\Laravel;
+namespace PipeDream\LaravelCreate;
 
 use File;
 use Storage;

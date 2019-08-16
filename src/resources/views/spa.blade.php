@@ -12,7 +12,7 @@
 
     <!-- Styles (avoid using Laravels publish feature) -->
     
-    <link href="{{ url('vendor/pipe-dream/laravel/css/app.css') }}" rel="stylesheet">
+    <link href="{{ url('vendor/pipe-dream/laravel-create/css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <script>
         window.__ENV__ = {!! json_encode($settings) !!}
@@ -24,8 +24,8 @@
         <app-header></app-header>
         <app-workspace></app-workspace>
     </div>
-    <script type="text/javascript" src="{{ url('vendor/pipe-dream/laravel/js/app.js') }}"></script>
+    <script type="text/javascript" src="{{ url('vendor/pipe-dream/laravel-create/js/app.js') }}"></script>
     <!-- import __GITHUB_DUMP__  -->
-    <script type="text/javascript" src="{{ url('vendor/pipe-dream/laravel/data/github.js') }}"></script>
+    <script type="text/javascript" src="{{ url('vendor/pipe-dream/laravel-create/data/github.js') }}"></script>
 </body>
 </html>
