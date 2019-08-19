@@ -71,7 +71,7 @@ token
 <kbd><img src="src/public/img/screenshots/api.png" width="400" /></kbd>
 
 ## Contributing
-In addition to the issue section we have a [Trello board](https://trello.com/b/R11mhfdy/pipe-dream).
+PRs and issues are welcome. In addition to the issue section we have a [Trello board](https://trello.com/b/R11mhfdy/pipe-dream) listing things that we need help with.
 To get started and get an overview check out [pipe-dream/docs](https://github.com/pipe-dream/docs)
 
 ## License
