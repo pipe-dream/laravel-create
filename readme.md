@@ -1,7 +1,7 @@
 
-[![Latest Stable Version](https://img.shields.io/packagist/v/pipe-dream/laravel.svg)](https://packagist.org/packages/pipe-dream/laravel)
+[![Latest Stable Version](https://img.shields.io/packagist/v/pipe-dream/laravel-create.svg)](https://packagist.org/packages/pipe-dream/laravel-create)
 [![Total Downloads](https://img.shields.io/packagist/dt/pipe-dream/laravel.svg)](https://packagist.org/packages/pipe-dream/laravel)
-[![License](https://img.shields.io/packagist/l/pipe-dream/laravel.svg)](https://packagist.org/packages/pipe-dream/laravel)
+[![License](https://img.shields.io/packagist/l/pipe-dream/laravel-create.svg)](https://packagist.org/packages/pipe-dream/laravel-create)
 
 
 Create new web projects really fast. By  giving Pipe Dream a minimum of input in form of a sketch/entity list it will predict your application schema and feed it into a set of pipes. These pipes will generate all the files needed to get started really quick.
@@ -17,7 +17,7 @@ Go to [pipedream.ai](https://pipedream.ai) to see a live implementation of the P
 ## Installation
 
 ```bash
-composer require --dev pipe-dream/laravel
+composer require --dev pipe-dream/laravel-create
 ```
 
 Thats it, now open your browser and go to `/pipe-dream` and start designing.
@@ -70,25 +70,9 @@ token
 
 <kbd><img src="src/public/img/screenshots/api.png" width="400" /></kbd>
 
-## Development roadmap
-This package is still very much in development. Below is a rough plan for the future.
-
-### Alpha ( < v0.1.0 )
-* The main goal of the alpha is to act as a proof of concept specifically for Laravel applications.
-* Bug fixes will continiue until the alpha is stable.
-* New features will be added only if the work required is reasonable.
-* Complex new features or non critical bug fixes might be postponed to the Beta version.
-
-### Beta ( v0.1.0 )
-* Most of the Javascript will be extracted to its own repository ( pipe-dream/core ) in order to easily enable support for multiple FileFactories in separate repos (Maybe ExpressFileFactory, DjangoFileFactory or others). This repo (pipe-dream/laravel) will then extend that core with logic, rules, data etc specific only for Laravel.
-* Backend and frontend interfaces/API specifications are supplied to make it clear what other implementations need to conform to.
-
-### Version 1 ( v1.0.0 )
-* When the beta is stable we will bump it up to v1.0.0
-
-### Help us out
-Help us out by simply trying this package. Feel free to post issues if you have a question, find a bug, have some idea for improvement or if you just want to share your experience. PRs are more than welcome, you dont need to be a pro.
-Start by looking at this [Trello board](https://trello.com/b/R11mhfdy/pipe-dream) listing all the stuff that needs to get done.
+## Contributing
+In addition to the issue section we have a [Trello board](https://trello.com/b/R11mhfdy/pipe-dream).
+To get started and get an overview check out [pipe-dream/docs](https://github.com/pipe-dream/docs)
 
 ## License
 MIT
