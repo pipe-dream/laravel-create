@@ -3,7 +3,6 @@ import Vuex from 'vuex'
 import {PipeDream} from '@pipe-dream/core/dist'
 import {PipeDreamVueTools} from '@pipe-dream/core/dist'
 import LaravelFileFactory from '@pipe-dream/laravel-file-factory';
-import LaravelNovaFileFactory from '../../../../../../../nova-file-factory/src/laravel-nova-file-factory';
 
 console.log(PipeDreamVueTools)
 
@@ -20,7 +19,6 @@ window.store = new Vuex.Store(
     new PipeDream({
         fileFactories: [
             LaravelFileFactory,
-            LaravelNovaFileFactory,
         ],
         ...window.__ENV__
     }).defaultStore
