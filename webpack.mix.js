@@ -21,7 +21,7 @@ mix.js('src/resources/js/app.js', 'src/public/js')
 /* while developing make sure public/vendor/pipe-dream/laravel is fresh */
 mix.copy('src/public/css/app.css', '../../../public/vendor/pipe-dream/laravel-create/css/app.css')
 mix.copy('src/public/js/app.js', '../../../public/vendor/pipe-dream/laravel-create/js/app.js')
-
+mix.disableSuccessNotifications();
 if (mix.inProduction()) {
   mix.version();
 }
