@@ -18,7 +18,7 @@ window.store = new Vuex.Store(
     new PipeDream({
         fileFactories: [
             LaravelFileFactory,
-            LaravelNovaFileFactory,            
+            //LaravelNovaFileFactory,            
         ],
         ...window.__ENV__
     }).defaultStore
