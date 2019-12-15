@@ -23,7 +23,7 @@ class ProjectFileManager
 
     public function write($files)
     {
-        $this->recordCurrentStateFor($files);
+        // $this->recordCurrentStateFor($files);
 
         collect($files)->each(function ($file) {
             $this->storage()->put($file->path, $file->content);
@@ -32,7 +32,7 @@ class ProjectFileManager
 
     public function delete($files)
     {
-        $this->recordCurrentStateFor($files);
+        // $this->recordCurrentStateFor($files);
 
         collect($files)->each(function ($file) {
             $this->storage()->delete($file->path);
@@ -56,6 +56,25 @@ class ProjectFileManager
             'pipe-dream-history.json',
             json_encode($this->history)
         );
+    }
+
+    public function deleteDuplicateDefaultMigrations($files)
+    {
+        if(collect($files)->pluck('path')->filter(function($path) {
+            return preg_match('/create_users_table/', $path);
+        })->isNotEmpty()) {
+            $this->delete([
+                json_decode('{"path": "database/migrations/2014_10_12_000000_create_users_table.php"}')
+            ]);            
+        }
+        
+        if(collect($files)->pluck('path')->filter(function($path) {
+            return preg_match('/create_password_resets_table/', $path);
+        })->isNotEmpty()) {
+            $this->delete([
+                json_decode('{"path": "database/migrations/2014_10_12_100000_create_password_resets_table.php"}')
+            ]);        
+        }
     }
 
     /*********** PRIVATE ************************************************** */

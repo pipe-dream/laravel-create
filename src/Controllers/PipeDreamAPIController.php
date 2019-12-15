@@ -26,16 +26,16 @@ class PipeDreamAPIController extends BaseController
 
         // Optionally reverse the previous design iteration
         // This is useful to remove previous mistakes and timestamp conflicts
-        $this->args->reverseHistory ? $this->project->reverseHistory() : null;
+        // $this->args->reverseHistory ? $this->project->reverseHistory() : null;
 
         // Write the files generated
         $this->project->write($this->args->reviewFiles);
 
-        // We wont need them
-        $this->deleteDefaultMigrations();
+        // If there are user/password_reset tables already present
+        $this->project->deleteDuplicateDefaultMigrations($this->args->reviewFiles);        
 
         // Save the changes we made
-        $this->project->persistHistory();
+        // $this->project->persistHistory();
 
         // Ensure migrations are autoloaded
         exec('cd .. && composer dumpautoload');
@@ -50,22 +50,8 @@ class PipeDreamAPIController extends BaseController
     private function setupProjectEnvironment()
     {
         $this->project = ProjectFileManager::make(
-            $this->args->isSandboxed
+            env('PIPEDREAM_IS_SANDBOXED')
         );
-    }
-
-    private function deleteDefaultMigrations()
-    {
-        $this->project->delete(json_decode('
-            [
-                {
-                    "path": "database/migrations/2014_10_12_000000_create_users_table.php"
-                },
-                {
-                    "path": "database/migrations/2014_10_12_100000_create_password_resets_table.php"
-                }
-            ]
-        '));
     }
 
     private function pathToFileName($path)
