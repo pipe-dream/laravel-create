@@ -1,4 +1,5 @@
 node_modules
 /vendor
 .vscode
-mix-manifest\.json
+mix-manifest.json
+.idea/*
