@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import {PipeDream} from '@pipe-dream/core'
+import {Schema} from "@pipe-dream/core/";
 import {PipeDreamVueTools} from '@pipe-dream/core'
 import LaravelFileFactory from '@pipe-dream/laravel-file-factory';
-
+import {LaravelNovaFileFactory} from 'laravel-nova-file-factory/dist'
 /* setup Vue to use Vuex and Pipe Dream components */
 Vue.use(Vuex)
 Vue.use(PipeDreamVueTools)
@@ -17,6 +18,7 @@ window.store = new Vuex.Store(
     new PipeDream({
         fileFactories: [
             LaravelFileFactory,
+            LaravelNovaFileFactory
         ],
         ...window.__ENV__
     }).defaultStore
@@ -25,5 +27,9 @@ window.store = new Vuex.Store(
 /* Let's go */
 new Vue({
     el: '#app',
-    store
+    store,
+    mounted(){
+        console.log(Schema.refresh(true))
+        store.dispatch('compileSchema', Schema);
+    }
 })
