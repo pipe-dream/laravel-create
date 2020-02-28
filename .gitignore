@@ -3,3 +3,5 @@ node_modules
 .vscode
 mix-manifest.json
 .idea/*
+/src/public/css
+/src/public/js
