@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import {PipeDream} from '@pipe-dream/core'
+import {Schema} from "@pipe-dream/core/";
 import {PipeDreamVueTools} from '@pipe-dream/core'
-import LaravelFileFactory from '@pipe-dream/laravel-file-factory';
-
+/* imports will be automatically added */
 /* setup Vue to use Vuex and Pipe Dream components */
 Vue.use(Vuex)
 Vue.use(PipeDreamVueTools)
@@ -16,7 +16,7 @@ window.Vue = Vue
 window.store = new Vuex.Store(
     new PipeDream({
         fileFactories: [
-            LaravelFileFactory,
+            /* file factories will be automatically added */
         ],
         ...window.__ENV__
     }).defaultStore
@@ -25,5 +25,9 @@ window.store = new Vuex.Store(
 /* Let's go */
 new Vue({
     el: '#app',
-    store
+    store,
+    mounted(){
+        //console.log(Schema.refresh(true))
+        store.dispatch('compileSchema', Schema);
+    }
 })

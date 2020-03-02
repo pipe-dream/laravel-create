@@ -3,7 +3,7 @@
 namespace PipeDream\LaravelCreate;
 
 use Illuminate\Support\ServiceProvider;
-use PipeDream\LaravelCreate\Commands\DumpAutoload;
+use PipeDream\LaravelCreate\Commands\PipeDreamBuild;
 
 class LaravelCreateServiceProvider extends ServiceProvider
 {
@@ -15,7 +15,7 @@ class LaravelCreateServiceProvider extends ServiceProvider
     public function register()
     {
         $this->commands([
-            DumpAutoload::class,
+            PipeDreamBuild::class,
         ]);
     }
 

@@ -905,7 +905,7 @@
     vue-textarea-autosize "^1.0.4"
     vuex "^3.1.0"
 
-"@pipe-dream/laravel-file-factory@^1.0.7", "@pipe-dream/laravel-file-factory@^1.0.8":
+"@pipe-dream/laravel-file-factory@^1.0.7":
   version "1.0.16"
   resolved "https://registry.yarnpkg.com/@pipe-dream/laravel-file-factory/-/laravel-file-factory-1.0.16.tgz#69d819eef404e2c6e269aaa4a52a92cf556ae978"
   integrity sha512-LICswrY1/A/6QNTaB4CQg3JRQo9Wh76nKuWzGgDMcp3hh3YzdobBbNB6G3HgjM9BQFmMDL/TmSrSdY2mVWX/gw==
@@ -5545,40 +5545,6 @@ laravel-mix@^4.0.14:
     webpack-merge "^4.1.0"
     webpack-notifier "^1.5.1"
     yargs "^12.0.5"
-
-laravel-nova-file-factory@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/laravel-nova-file-factory/-/laravel-nova-file-factory-0.0.1.tgz#644476e6522eb68a6bd714f83e823875c708eab3"
-  integrity sha512-YPaesy8TmgrQ7DQMIjmDb/nfKCN3/s+uBlPq/Qax9XF+iRIzuhqqRNTimm4AMBIH5iGFm+2sM2M/V1f+aAPtyw==
-  dependencies:
-    "@pipe-dream/core" "^1.0.4"
-    "@pipe-dream/laravel-file-factory" "^1.0.8"
-    "@vue/test-utils" "^1.0.0-beta.29"
-    babel-core "7.0.0-bridge.0"
-    babel-jest "^23.6.0"
-    babel-plugin-module-resolver "^3.2.0"
-    babel-plugin-transform-es2015-modules-commonjs "^6.26.2"
-    change-case "^3.1.0"
-    collect.js "^4.6.5"
-    cross-env "^5.1"
-    deepmerge "^3.2.0"
-    expose-loader "^0.7.5"
-    jest "^24.8.0"
-    laravel-mix "^4.0.14"
-    laravel-mix-purgecss "^4.1"
-    laravel-mix-tailwind "^0.1.0"
-    pluralize "^7.0.0"
-    raw-loader "^3.0.0"
-    resolve-url-loader "^2.3.1"
-    sass "^1.15.2"
-    sass-loader "^7.1.0"
-    tailwindcss "^0.7.4"
-    vue "^2.5.17"
-    vue-highlightjs "^1.3.3"
-    vue-jest "^3.0.4"
-    vue-template-compiler "^2.6.10"
-    vue-textarea-autosize "^1.0.4"
-    vuex "^3.1.0"
 
 last-call-webpack-plugin@^3.0.0:
   version "3.0.0"
