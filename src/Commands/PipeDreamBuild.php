@@ -33,6 +33,7 @@ class PipeDreamBuild extends Command
         $this->info("Rebuilding PipeDream...");
 
         $appJSPath = __DIR__ . "/../resources/js/app.js";
+        $PDFolder = __DIR__ . "/../../";
         $app = file_get_contents($appJSPath);
         $nodeModules = base_path() . DIRECTORY_SEPARATOR . "node_modules";
 
@@ -76,8 +77,13 @@ class PipeDreamBuild extends Command
 
         file_put_contents($appJSPath, $overwritten);
 
+        if(!file_exists($PDFolder . "node_modules")){
+            $this->info("Building PipeDream Node modules...");
+            exec("cd " . $PDFolder . " && npm install");
+        }
+
         $this->info("Compiling...");
-        if(!exec("npm run dev --prefix " . __DIR__ . '/../../')){
+        if (!exec("cd " . $PDFolder . " && npm run dev")) {
             $this->info("!!!Something went wrong when compiling!!!");
             file_put_contents($appJSPath, $app);
             exit(0);
