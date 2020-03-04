@@ -78,7 +78,9 @@ class PipeDreamBuild extends Command
 
         $this->info("Compiling...");
         if(!exec("npm run dev --prefix " . __DIR__ . '/../../')){
-            $this->warning("Something went wrong when compiling.");
+            $this->info("!!!Something went wrong when compiling!!!");
+            file_put_contents($appJSPath, $app);
+            exit(0);
         }
         $this->info("PipeDream was built successfully, go build something awesome!");
         // set app.js back to the template for the next update
