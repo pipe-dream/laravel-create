@@ -15,6 +15,9 @@ Create new web projects really fast. By  giving Pipe Dream a minimum of input in
 ```bash
 composer require --dev pipe-dream/laravel-create
 ```
+```bash
+php artisan pipedream:build
+```
 
 Thats it, now open your browser and go to `/pipe-dream` and start designing.
 
