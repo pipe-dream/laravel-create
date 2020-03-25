@@ -12,8 +12,20 @@ Create new web projects really fast. By  giving Pipe Dream a minimum of input in
 
 ## Installation
 
+Install Pipe Dream
 ```bash
 composer require --dev pipe-dream/laravel-create
+```
+
+Install the Laravel File Factory
+```bash
+npm install --dev @pipe-dream/laravel-file-factory
+```
+More File Factories can be found [here](https://github.com/topics/pipe-dream-file-factory)
+
+Build Pipe Dream
+```bash
+php artisan php artisan pipedream:build
 ```
 
 Thats it, now open your browser and go to `/pipe-dream` and start designing.
