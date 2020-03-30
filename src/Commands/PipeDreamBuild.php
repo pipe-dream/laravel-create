@@ -33,6 +33,7 @@ class PipeDreamBuild extends Command
         $this->info("Rebuilding PipeDream...");
 
         $appJSPath = __DIR__ . "/../resources/js/app.js";
+        $appJSOriginal = file_get_contents(__DIR__ . "/../resources/js/app_backup.js");
         $PDFolder = __DIR__ . "/../../";
         $app = file_get_contents($appJSPath);
         $nodeModules = base_path() . DIRECTORY_SEPARATOR . "node_modules";
@@ -90,6 +91,6 @@ class PipeDreamBuild extends Command
         }
         $this->info("PipeDream was built successfully, go build something awesome!");
         // set app.js back to the template for the next update
-        file_put_contents($appJSPath, $app);
+        file_put_contents($appJSPath, $appJSOriginal);
     }
 }

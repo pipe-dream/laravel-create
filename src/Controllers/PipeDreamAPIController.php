@@ -32,7 +32,7 @@ class PipeDreamAPIController extends BaseController
         $this->project->write($this->args->reviewFiles);
 
         // If there are user/password_reset tables already present
-        $this->project->deleteDuplicateDefaultMigrations($this->args->reviewFiles);        
+        $this->project->deleteDuplicateDefaultMigrations($this->args->reviewFiles);
 
         // Save the changes we made
         // $this->project->persistHistory();
@@ -57,5 +57,9 @@ class PipeDreamAPIController extends BaseController
     private function pathToFileName($path)
     {
         return substr($path, strrpos($path, '/') + 1);
+    }
+
+    public function save(){
+        return collect("Save not implemented yet");
     }
 }
