@@ -25,7 +25,7 @@ More File Factories can be found [here](https://github.com/topics/pipe-dream-fil
 
 Build Pipe Dream
 ```bash
-php artisan php artisan pipedream:build
+php artisan pipedream:build
 ```
 
 Thats it, now open your browser and go to `/pipe-dream` and start designing.
