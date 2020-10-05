@@ -11,7 +11,7 @@
         "php": "^7.1.3"
     },
     "require-dev": {
-                
+
     },
     "config": {
         "optimize-autoloader": true,
@@ -43,7 +43,7 @@
             "@php ../../../artisan package:discover --ansi"
         ],
         "post-update-cmd": [
-            
+
         ]
     }
 }

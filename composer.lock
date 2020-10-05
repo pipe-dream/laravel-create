@@ -4,8 +4,62 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6271b7b57e0963bc8dbcc8736b2b9145",
-    "packages": [],
+    "content-hash": "b0e8dc8ab1165a06bbce16614baf186c",
+    "packages": [
+        {
+            "name": "ajthinking/php-file-manipulator",
+            "version": "v0.0.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ajthinking/php-file-manipulator.git",
+                "reference": "54ad973232d903e977ee42048af812d61b3a3f2f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ajthinking/php-file-manipulator/zipball/54ad973232d903e977ee42048af812d61b3a3f2f",
+                "reference": "54ad973232d903e977ee42048af812d61b3a3f2f",
+                "shasum": ""
+            },
+            "type": "package",
+            "extra": {
+                "laravel": {
+                    "dont-discover": [],
+                    "providers": [
+                        "PHPFileManipulator\\ServiceProvider"
+                    ],
+                    "aliases": {
+                        "PHPFile": "PHPFileManipulator\\Facades\\PHPFile",
+                        "LaravelFile": "PHPFileManipulator\\Facades\\LaravelFile"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PHPFileManipulator\\": "src/",
+                    "PHPFileManipulator\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anders Jürisoo",
+                    "email": "jurisoo@hotmail.com"
+                }
+            ],
+            "description": "Programatically edit PHP and Laravel files.",
+            "keywords": [
+                "abstract syntax tree",
+                "ast",
+                "laravel",
+                "php",
+                "php-parser"
+            ],
+            "time": "2020-02-19T11:38:18+00:00"
+        }
+    ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",

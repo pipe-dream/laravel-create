@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import {PipeDream} from '@pipe-dream/core'
-import {Schema} from "@pipe-dream/core/";
+import {Schema} from '@pipe-dream/core';
 import {PipeDreamVueTools} from '@pipe-dream/core'
 /* imports will be automatically added */
 /* setup Vue to use Vuex and Pipe Dream components */
@@ -22,12 +22,15 @@ window.store = new Vuex.Store(
     }).defaultStore
 )
 
+window.PipeDream = {
+    Schema
+}
+
 /* Let's go */
 new Vue({
     el: '#app',
     store,
     mounted(){
-        //console.log(Schema.refresh(true))
-        store.dispatch('compileSchema', Schema);
+        store.dispatch('compileSchema', Schema.refresh());
     }
 })
